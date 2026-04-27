@@ -516,16 +516,21 @@
         <a href="#upload" class="cta-button">📸 Send Lawn Photos for Quick Quote</a>
     </section>
 
-    <!-- 🌿 PHOTO UPLOAD SECTION for faster quotes -->
+    <!-- 🌿 PHOTO UPLOAD SECTION - submits directly to your Gmail -->
     <div class="upload-quote-section" id="upload">
         <h2>
             <span>📷</span> Get a Faster Quote
         </h2>
-        <p class="upload-subtitle">Snap a few photos of your lawn and tell us a bit about your project. We'll reply with a personalized estimate.</p>
+        <p class="upload-subtitle">Snap a few photos of your lawn and tell us a bit about your project. They'll land right in my inbox at <strong>3wildflowerlawns@gmail.com</strong>.</p>
         
-        <!-- The form uses Formspree as an example; replace with your own endpoint or service -->
-        <form class="photo-form" action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
-            <!-- Replace the action URL with your own form handling service (e.g., Formspree, Getform, or your server endpoint) -->
+        <!-- Form using FormSubmit.co to email directly to your Gmail -->
+        <form class="photo-form" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST" enctype="multipart/form-data">
+            <!-- FormSubmit configuration -->
+            <input type="hidden" name="_subject" value="New Lawn Photo Quote Request - Wildflower Yard Works">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="false">
+            
             <div class="input-group">
                 <div class="input-field">
                     <label>Your Name</label>
@@ -551,22 +556,22 @@
                 <textarea name="message" rows="3" placeholder="e.g., native plant bed, mowing, overgrown yard cleanup..."></textarea>
             </div>
 
-            <!-- File upload area -->
+            <!-- File upload area - photos go to your email -->
             <div class="file-upload-area" id="fileDropZone">
                 <label for="lawn-photos" class="file-upload-label">
                     <span class="file-icon">🌾📂</span>
                     <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload up to 5 lawn images</span>
                 </label>
-                <input type="file" id="lawn-photos" name="lawn-photos" accept="image/*" multiple>
+                <input type="file" id="lawn-photos" name="attachment" accept="image/*" multiple>
                 <div id="file-chosen">No files selected yet</div>
             </div>
 
             <button type="submit" class="submit-btn">✨ Send Photos & Request Quote</button>
-            <p class="note-text">Your photos help us understand your space quickly. We respect your privacy.</p>
+            <p class="note-text">📬 Your photos and details will be emailed to 3wildflowerlawns@gmail.com — I'll reply with a personalized estimate quickly.</p>
         </form>
     </div>
 
-    <!-- Mission Statement (same as before) -->
+    <!-- Mission Statement -->
     <div class="mission-section" id="mission">
         <div class="mission-text">
             <h2><span>🌱</span> Our Mission</h2>
@@ -605,7 +610,7 @@
         <p style="margin-top:0.5rem;">🌼 Rooted in nature. Growing community.</p>
     </footer>
 
-    <!-- Simple script to show selected file names and handle drag/drop visual -->
+    <!-- Script to show selected file names and handle drag/drop visual -->
     <script>
         (function() {
             const fileInput = document.getElementById('lawn-photos');
