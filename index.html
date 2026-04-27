@@ -530,7 +530,7 @@
         <a href="#upload" class="cta-button">📸 Send Lawn Photos for Quick Quote</a>
     </section>
 
-    <!-- 🌿 PHOTO UPLOAD SECTION - Working with Getform.io -->
+    <!-- 🌿 PHOTO UPLOAD SECTION - Using Web3Forms (No account needed!) -->
     <div class="upload-quote-section" id="upload">
         <h2>
             <span>📷</span> Get a Faster Quote
@@ -541,16 +541,26 @@
             ✅ <strong>Thank you!</strong> Your photos and request have been sent successfully. I'll review your lawn and get back to you with a personalized quote within 24 hours.
         </div>
 
-        <form class="photo-form" id="quoteForm" action="https://app.forminit.com/forms/lzhz7xiqr0o" method="POST" enctype="multipart/form-data">
-            <!-- 
-            ⚠️ IMPORTANT: Replace 'YOUR-FORM-ID' above with your actual Getform endpoint.
-            1. Go to https://getform.io and sign up (free)
-            2. Create a new form
-            3. Copy your unique form endpoint URL
-            4. Paste it in the action attribute above
-            5. In Getform dashboard, set email forwarding to: 3wildflowerlawns@gmail.com
-            -->
+        <!-- 
+        ⚠️ IMPORTANT - REPLACE THE ACCESS KEY BELOW:
+        1. Go to https://web3forms.com/ (NO signup required)
+        2. Enter your email: 3wildflowerlawns@gmail.com
+        3. Click "Get Access Key" button
+        4. Check your Gmail for the access key
+        5. Replace "YOUR-ACCESS-KEY-HERE" below with your actual key
+        -->
+        <form class="photo-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
             
+            <!-- Replace this access key with your own from Web3Forms -->
+            <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE">
+            
+            <!-- Where to send the email -->
+            <input type="hidden" name="from_name" value="Wildflower Yard Works Quote Request">
+            <input type="hidden" name="subject" value="New Lawn Photo Quote Request">
+            
+            <!-- Redirect after submission (optional) -->
+            <input type="hidden" name="redirect" value="false">
+
             <div class="input-group">
                 <div class="input-field">
                     <label>Your Name *</label>
@@ -579,9 +589,9 @@
             <div class="file-upload-area" id="fileDropZone">
                 <label for="lawn-photos" class="file-upload-label">
                     <span class="file-icon">🌾📂</span>
-                    <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload lawn images (max 5)</span>
+                    <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload lawn images</span>
                 </label>
-                <input type="file" id="lawn-photos" name="lawn-photos" accept="image/*" multiple>
+                <input type="file" id="lawn-photos" name="lawn_photos" accept="image/*" multiple>
                 <div id="file-chosen">No files selected yet</div>
             </div>
 
@@ -681,7 +691,7 @@
             function updateFileDisplay(files) {
                 if (!files || files.length === 0) {
                     fileChosen.textContent = 'No files selected yet';
-                    if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images (max 5)';
+                    if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images';
                     return;
                 }
                 const nameList = Array.from(files).map(f => f.name).join(', ');
@@ -691,30 +701,40 @@
                 }
             }
 
-            // Form submission handling
+            // Form submission with Web3Forms
             if (form) {
-                form.addEventListener('submit', function(e) {
-                    // Show loading state
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
                     submitBtn.disabled = true;
                     submitBtn.textContent = '⏳ Sending...';
                     
-                    // Let the form submit naturally to Getform
-                    // The success message will show after a short delay
-                    setTimeout(() => {
-                        successMessage.classList.add('show');
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = '✨ Send Photos & Request Quote';
-                        form.reset();
-                        fileChosen.textContent = 'No files selected yet';
-                        if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images (max 5)';
-                        
-                        // Scroll to success message
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 1500);
+                    const formData = new FormData(form);
                     
-                    // Prevent actual form submission for demo
-                    // Remove this line when you have the Getform endpoint set up
-                    e.preventDefault();
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            // Show success message
+                            successMessage.classList.add('show');
+                            form.reset();
+                            fileChosen.textContent = 'No files selected yet';
+                            if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images';
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            alert('Oops! Something went wrong. Please try again or call me directly at (601) 597-8142.');
+                        }
+                    } catch (error) {
+                        alert('Oops! Something went wrong. Please try again or call me directly at (601) 597-8142.');
+                    }
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '✨ Send Photos & Request Quote';
                 });
             }
         })();
