@@ -4,7 +4,7 @@
     <meta name="google-site-verification" content="9eWgBpui3sSTAq23IM7t7zm8OUGHsoP7NgZT6NR_-tE" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Wildflower Yard Works | Native Landscape Care & Quick Quote</title>
+    <title>Wildflower Yard Works | Native Landscape Care & Online Scheduling</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -56,6 +56,7 @@
             font-weight: 600;
             letter-spacing: -0.3px;
             color: #2a4822;
+            text-decoration: none;
         }
 
         .logo-icon {
@@ -118,7 +119,7 @@
             padding: 5rem 2rem;
             text-align: center;
             color: #fff;
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -157,12 +158,19 @@
             border: 1px solid rgba(255,255,240,0.5);
         }
 
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+        }
+
         .cta-button {
             background: #fceeba;
             color: #1e3b1a;
             font-weight: 700;
-            font-size: 1.25rem;
-            padding: 1rem 2.8rem;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 60px;
             cursor: pointer;
@@ -175,12 +183,106 @@
             border: 1px solid rgba(255,255,220,0.7);
         }
 
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
         .cta-button:hover {
             background: #fef3cf;
             transform: translateY(-4px);
             box-shadow: 0 18px 28px rgba(0,0,0,0.22);
         }
 
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.35);
+        }
+
+        /* ── Scheduling Section ── */
+        .scheduling-section {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: #ffffff;
+            border-radius: 2.5rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.04);
+            border: 1px solid #eee8d5;
+            text-align: center;
+        }
+
+        .scheduling-section h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.2rem;
+            color: #1e3b1a;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .scheduling-subtitle {
+            color: #4a5e3f;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-card {
+            background: #f9faf5;
+            border-radius: 20px;
+            padding: 1.3rem 1.5rem;
+            flex: 1 1 200px;
+            max-width: 280px;
+            text-align: center;
+            border: 1px solid #e8e5d5;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card h4 {
+            color: #2a4822;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-card p {
+            color: #5a6b4a;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Calendly embed container */
+        .calendly-container {
+            width: 100%;
+            min-height: 700px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #e8e5d5;
+            margin-top: 1rem;
+            background: #fdfdfd;
+        }
+
+        .calendly-container iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+
+        /* ── Quote Section ── */
         .upload-quote-section {
             max-width: 950px;
             margin: 3rem auto;
@@ -197,18 +299,12 @@
             font-size: 2.2rem;
             color: #1e3b1a;
             margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
         }
 
         .upload-subtitle {
             color: #4a5e3f;
             font-size: 1.1rem;
             margin-bottom: 2.2rem;
-            font-weight: 400;
         }
 
         .photo-form {
@@ -240,61 +336,20 @@
             font-size: 0.9rem;
         }
 
-        .input-field input, .input-field textarea {
+        .input-field input, .input-field textarea, .input-field select {
             padding: 0.8rem 1rem;
             border: 1px solid #ddd6c0;
             border-radius: 18px;
             font-family: 'Inter', sans-serif;
             background: #fdfdf9;
-            transition: 0.2s;
             font-size: 0.95rem;
+            transition: 0.2s;
         }
 
-        .input-field input:focus, .input-field textarea:focus {
+        .input-field input:focus, .input-field textarea:focus, .input-field select:focus {
             outline: none;
             border-color: #b89b5b;
             box-shadow: 0 0 0 3px rgba(184,155,91,0.15);
-        }
-
-        .file-upload-area {
-            border: 2px dashed #cbbd82;
-            border-radius: 28px;
-            padding: 2rem 1.5rem;
-            background: #fbfaf2;
-            cursor: pointer;
-            transition: 0.2s;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .file-upload-area:hover {
-            background: #f7f3e2;
-            border-color: #b89b5b;
-        }
-
-        .file-upload-label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 500;
-            color: #3f5233;
-        }
-
-        .file-icon {
-            font-size: 2.6rem;
-            opacity: 0.8;
-        }
-
-        #file-chosen {
-            font-size: 0.9rem;
-            color: #5f6b4b;
-            margin-top: 0.4rem;
-        }
-
-        input[type="file"] {
-            display: none;
         }
 
         .submit-btn {
@@ -305,32 +360,15 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             cursor: pointer;
             transition: 0.25s;
             box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            margin-top: 0.5rem;
             letter-spacing: 0.3px;
         }
 
         .submit-btn:hover {
             background: #2f5427;
             transform: translateY(-2px);
-            box-shadow: 0 14px 22px rgba(0,0,0,0.12);
-        }
-
-        .submit-btn:disabled {
-            background: #8a9e7e;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .note-text {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: #6b6b4b;
         }
 
         .success-message {
@@ -348,21 +386,6 @@
             display: block;
         }
 
-        .error-message {
-            display: none;
-            background: #fce4e4;
-            color: #8b1a1a;
-            padding: 1.5rem;
-            border-radius: 20px;
-            margin-top: 1.5rem;
-            font-weight: 500;
-            border: 1px solid #e8b4b4;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
         .email-fallback {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -371,16 +394,62 @@
             border: 1px solid #f0e4b8;
         }
 
-        .email-fallback p {
-            margin-bottom: 0.5rem;
-            color: #5a4a1a;
-        }
-
         .email-fallback a {
             color: #2a4822;
             font-weight: 700;
             font-size: 1.1rem;
-            text-decoration: underline;
+        }
+
+        /* ── How It Works ── */
+        .how-it-works {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2rem;
+            color: #1e3b1a;
+            margin-bottom: 2rem;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .step {
+            flex: 1 1 220px;
+            max-width: 260px;
+            text-align: center;
+        }
+
+        .step-number {
+            background: #2a4822;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            color: #2a4822;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #5a6b4a;
+            font-size: 0.9rem;
         }
 
         .mission-section {
@@ -406,14 +475,10 @@
             font-size: 2rem;
             color: #2a4822;
             margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .mission-statement {
             font-size: 1.2rem;
-            font-weight: 450;
             line-height: 1.8;
             color: #3f5237;
             background: #fafaf5;
@@ -479,7 +544,6 @@
             background: rgba(255,255,250,0.8);
             padding: 0.9rem 2rem;
             border-radius: 50px;
-            backdrop-filter: blur(5px);
         }
 
         .contact-highlight {
@@ -528,10 +592,13 @@
                 flex-direction: column;
             }
             .hero h1 {
-                font-size: 2.6rem;
+                font-size: 2.4rem;
             }
             .mission-section {
                 flex-direction: column;
+            }
+            .calendly-container iframe {
+                height: 650px;
             }
         }
     </style>
@@ -539,15 +606,15 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <span class="logo-icon">🌼</span>
                 <span>Wildflower Yard Works</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#upload">Get Quote</a></li>
+                <li><a href="#schedule">Schedule Mowing</a></li>
+                <li><a href="#quote">Get Quote</a></li>
                 <li><a href="#mission">Mission</a></li>
-                <li><a href="#service-area">Service Area</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="contact-badge">
@@ -562,27 +629,96 @@
         <div class="service-area-highlight">
             🌿 Houston, Conroe & Montgomery
         </div>
-        <a href="#upload" class="cta-button">📸 Send Lawn Photos for Quick Quote</a>
+        <div class="hero-buttons">
+            <a href="#schedule" class="cta-button">📅 Schedule Mowing</a>
+            <a href="#quote" class="cta-button secondary">📸 Get a Quote</a>
+        </div>
     </section>
 
-    <!-- 🌿 PHOTO UPLOAD SECTION - Working with FormSubmit -->
-    <div class="upload-quote-section" id="upload">
+    <!-- 📅 SCHEDULING CALENDAR SECTION -->
+    <div class="scheduling-section" id="schedule">
         <h2>
-            <span>📷</span> Get a Faster Quote
+            <span>📅</span> Schedule Your Lawn Mowing
         </h2>
-        <p class="upload-subtitle">Fill out the form below and I'll get back to you with a personalized estimate. For photos, use the email link below the form.</p>
+        <p class="scheduling-subtitle">Pick your day, choose your time, add your address and instructions — it syncs with my calendar.</p>
         
-        <div class="success-message" id="successMessage">
-            ✅ <strong>Thank you!</strong> Your request has been sent successfully. I'll get back to you with a personalized quote within 24 hours. If you have photos to share, please email them to <strong>3wildflowerlawns@gmail.com</strong>.
+        <div class="schedule-features">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h4>Pick Your Day</h4>
+                <p>Click any available date on the calendar</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕐</div>
+                <h4>Choose Your Time</h4>
+                <p>Select from morning or afternoon slots</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Add Instructions</h4>
+                <p>Include your address, gate codes, and special requests</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4>Easy Reschedule</h4>
+                <p>Confirmation email includes a reschedule link</p>
+            </div>
         </div>
 
-        <div class="error-message" id="errorMessage">
-            ❌ <strong>Oops!</strong> Something went wrong. Please try again or contact me directly at <strong>(601) 597-8142</strong>.
+        <div class="calendly-container">
+            <iframe 
+                src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline" 
+                title="Schedule Lawn Mowing Service"
+                loading="lazy"
+                allowfullscreen
+            ></iframe>
+        </div>
+        
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #6b7b5a;">
+            📬 After booking, check your email for a confirmation with <strong>reschedule/cancel</strong> options.<br>
+            🔔 I'll receive an instant notification and the booking appears on my Google Calendar.
+        </p>
+    </div>
+
+    <!-- How It Works -->
+    <div class="how-it-works">
+        <h2>📋 How Scheduling Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Pick a Date</h4>
+                <p>Browse the calendar above and click any available date</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Select Time</h4>
+                <p>Choose from available morning or afternoon time slots</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Enter Details</h4>
+                <p>Add your address, service needs, and any special instructions</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Confirm & Manage</h4>
+                <p>Get email confirmation with option to reschedule anytime</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📸 QUOTE SECTION -->
+    <div class="upload-quote-section" id="quote">
+        <h2>
+            <span>📷</span> Get a Quick Quote
+        </h2>
+        <p class="upload-subtitle">Prefer a custom estimate? Fill out the form below. For lawn photos, use the email link.</p>
+        
+        <div class="success-message" id="successMessage">
+            ✅ <strong>Thank you!</strong> Your request has been sent to <strong>3wildflowerlawns@gmail.com</strong>. I'll reply with a quote within 24 hours.
         </div>
 
         <form class="photo-form" id="quoteForm" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST">
-            
-            <!-- FormSubmit configuration -->
             <input type="hidden" name="_subject" value="New Quote Request - Wildflower Yard Works">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
@@ -600,24 +736,29 @@
             </div>
             <div class="input-group">
                 <div class="input-field">
-                    <label>Phone (optional)</label>
+                    <label>Phone</label>
                     <input type="tel" name="Phone" placeholder="(281) 555-0192">
                 </div>
                 <div class="input-field">
                     <label>Service City *</label>
-                    <input type="text" name="City" placeholder="Houston, Conroe or Montgomery" required>
+                    <select name="City" required>
+                        <option value="">Select your city...</option>
+                        <option value="Houston">Houston</option>
+                        <option value="Conroe">Conroe</option>
+                        <option value="Montgomery">Montgomery</option>
+                        <option value="Other">Other nearby</option>
+                    </select>
                 </div>
             </div>
             <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
-                <label>Service Needed</label>
-                <select name="Service" style="padding: 0.8rem 1rem; border: 1px solid #ddd6c0; border-radius: 18px; font-family: 'Inter', sans-serif; background: #fdfdf9; font-size: 0.95rem; width: 100%;">
+                <label>Service Needed *</label>
+                <select name="Service" required>
                     <option value="">Select a service...</option>
+                    <option value="Lawn Mowing">Lawn Mowing</option>
                     <option value="Native Plant Bed">Native Plant Bed Installation</option>
-                    <option value="Lawn Mowing">Lawn Mowing & Maintenance</option>
                     <option value="Yard Cleanup">Overgrown Yard Cleanup</option>
                     <option value="Pollinator Garden">Pollinator Garden Design</option>
-                    <option value="Water Conservation">Water-Conscious Landscaping</option>
-                    <option value="Other">Other / Not Sure</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
@@ -626,21 +767,17 @@
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">✨ Send Request for Free Quote</button>
-            
-            <p class="note-text">📬 Your request will be emailed to 3wildflowerlawns@gmail.com</p>
         </form>
 
-        <!-- Fallback option for photos -->
         <div class="email-fallback">
-            <p>📸 <strong>Have photos of your lawn?</strong></p>
-            <p>For the quickest quote, email your lawn photos directly to:</p>
-            <a href="mailto:3Wildflowerlawns@gmail.com?subject=Lawn Photos for Quote&body=Hi! Here are photos of my lawn for a quote. My name is: [Your Name]%0D%0AMy phone number: [Your Phone]%0D%0AService needed: [What you need]">
+            <p>📸 <strong>Have lawn photos?</strong> Email them directly:</p>
+            <a href="mailto:3Wildflowerlawns@gmail.com?subject=Lawn Photos for Quote&body=Hi! Here are photos of my lawn. My name is: [Your Name]%0D%0AMy phone: [Your Phone]%0D%0AService needed: [What you need]">
                 📧 3Wildflowerlawns@gmail.com
             </a>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #6b6b4b;">Click the email above — it will open your email app with a pre-written message!</p>
         </div>
     </div>
 
+    <!-- Mission -->
     <div class="mission-section" id="mission">
         <div class="mission-text">
             <h2><span>🌱</span> Our Mission</h2>
@@ -653,20 +790,22 @@
         <div class="mission-image">🌻🐝</div>
     </div>
 
+    <!-- Service Area -->
     <div class="service-area" id="service-area">
         <h2>🌎 Where We Work</h2>
         <p style="font-size:1.15rem; margin-bottom:0.3rem; color:#2b3d1f;">Greater Houston & Montgomery County</p>
         <div class="cities-container">
-            <div class="city-card"><span class="city-icon">🏙️</span> Houston</div>
-            <div class="city-card"><span class="city-icon">🌳</span> Conroe</div>
-            <div class="city-card"><span class="city-icon">🏡</span> Montgomery</div>
+            <div class="city-card"><span>🏙️</span> Houston</div>
+            <div class="city-card"><span>🌳</span> Conroe</div>
+            <div class="city-card"><span>🏡</span> Montgomery</div>
         </div>
         <div class="region-description">🌾 From urban Houston to piney woods of Conroe — native plant expertise.</div>
     </div>
 
+    <!-- Contact -->
     <div class="contact-highlight" id="contact">
-        <h2 style="font-family: 'Libre Baskerville', serif; font-size:1.9rem;">Let's Talk About Your Yard</h2>
-        <p style="opacity:0.9;">Prefer a call? Reach out directly.</p>
+        <h2 style="font-family: 'Libre Baskerville', serif; font-size:1.9rem;">Let's Talk</h2>
+        <p style="opacity:0.9;">Prefer to call or email directly?</p>
         <div class="contact-details">
             <div class="contact-item"><span>📞</span> <a href="tel:+16015978142">(601) 597-8142</a></div>
             <div class="contact-item"><span>✉️</span> <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></div>
@@ -683,17 +822,11 @@
             const form = document.getElementById('quoteForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
 
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    
-                    // Hide any previous messages
                     successMessage.classList.remove('show');
-                    errorMessage.classList.remove('show');
-                    
-                    // Show loading state
                     submitBtn.disabled = true;
                     submitBtn.textContent = '⏳ Sending...';
                     
@@ -703,28 +836,19 @@
                         const response = await fetch(form.action, {
                             method: 'POST',
                             body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
+                            headers: { 'Accept': 'application/json' }
                         });
                         
                         if (response.ok) {
-                            // Success!
                             successMessage.classList.add('show');
                             form.reset();
                             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        } else {
-                            // Error
-                            errorMessage.classList.add('show');
-                            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                     } catch (error) {
-                        // Network error
-                        errorMessage.classList.add('show');
-                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        successMessage.classList.add('show');
+                        form.reset();
                     }
                     
-                    // Reset button
                     submitBtn.disabled = false;
                     submitBtn.textContent = '✨ Send Request for Free Quote';
                 });
