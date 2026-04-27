@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildflower Yard Works | Native Landscape Care in Texas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3a1f;
+            background-color: #f9f7f2;
+        }
+
+        /* ── Header / Navigation ── */
+        header {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c3f 50%, #6b8f5e 100%);
+            color: #fff;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.25s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #f9e076;
+            color: #f9e076;
+        }
+
+        .contact-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-badge a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23a8c97e;stop-opacity:0.9"/><stop offset="100%25" style="stop-color:%23446d33;stop-opacity:0.95"/></linearGradient></defs><rect width="1200" height="600" fill="url(%23g)"/><g fill="%23ffffff" opacity="0.08"><circle cx="150" cy="180" r="70"/><circle cx="1050" cy="400" r="90"/><circle cx="600" cy="120" r="50"/><path d="M0 400 Q 150 250 350 380 T 700 350 T 1100 420 L 1200 390 L 1200 600 L 0 600 Z"/></g><g fill="%23f7e896" opacity="0.12"><ellipse cx="200" cy="500" rx="30" ry="18"/><ellipse cx="950" cy="150" rx="25" ry="15"/><ellipse cx="650" cy="480" rx="35" ry="20"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: #fff;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .service-area-highlight {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 0.6rem 2rem;
+            border-radius: 40px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 2rem;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .hero .service-area-highlight i {
+            margin-right: 0.5rem;
+        }
+
+        .cta-button {
+            background: #f9e076;
+            color: #2d5a27;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #fceb8b;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+        }
+
+        /* ── Mission Statement Section ── */
+        .mission-section {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mission-text {
+            flex: 1 1 500px;
+        }
+
+        .mission-text h2 {
+            font-size: 2rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mission-statement {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #3a4e2d;
+            background: #f4f9ee;
+            padding: 1.8rem;
+            border-radius: 20px;
+            border-left: 6px solid #2d5a27;
+            font-style: italic;
+        }
+
+        .mission-image {
+            flex: 0 0 220px;
+            text-align: center;
+            font-size: 8rem;
+            opacity: 0.7;
+        }
+
+        /* ── Service Area Map Block ── */
+        .service-area {
+            background: #eaf3e0;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .service-area h2 {
+            font-size: 2.2rem;
+            color: #1e3a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .cities-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .city-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+            min-width: 150px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #2d5a27;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .city-icon {
+            font-size: 2.2rem;
+        }
+
+        .region-description {
+            max-width: 700px;
+            margin: 1.5rem auto;
+            font-size: 1.1rem;
+            color: #2b3d1f;
+            background: rgba(255,255,255,0.7);
+            padding: 1rem 1.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* ── Contact Section ── */
+        .contact-highlight {
+            background: #2d5a27;
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            font-size: 1.3rem;
+            margin-top: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .contact-item a {
+            color: #f9e076;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1e2e15;
+            color: #ccd9c0;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+        }
+
+        footer span {
+            color: #f9e076;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            .mission-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-details {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!--  HEADER with Navigation  -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🌼</span>
+                <span>Wildflower Yard Works</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#service-area">Service Area</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="contact-badge">
+                📞 <a href="tel:+16015978142">(601) 597-8142</a>
+            </div>
+        </div>
+    </header>
+
+    <!--  HERO  -->
+    <section class="hero">
+        <h1>Wildflower Yard Works</h1>
+        <p class="tagline">Native beauty. Naturally maintained. Texas proud.</p>
+        <div class="service-area-highlight">
+            🌿 Serving Houston, Conroe & Montgomery, Texas
+        </div>
+        <a href="tel:+16015978142" class="cta-button">📞 Call (601) 597-8142 — Free Estimate</a>
+    </section>
+
+    <!--  MISSION STATEMENT  -->
+    <div class="mission-section" id="mission">
+        <div class="mission-text">
+            <h2>
+                <span>🌱</span> Our Mission
+            </h2>
+            <div class="mission-statement">
+                "To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time. 
+                We believe every lawn can bloom with purpose: conserving water, supporting pollinators, 
+                and creating welcoming landscapes for families across Houston, Conroe, and Montgomery. 
+                We combine thoughtful craftsmanship with deep respect for the land, so your yard 
+                works for you and the wild beauty that surrounds us."
+            </div>
+        </div>
+        <div class="mission-image">
+            🌻🐝
+        </div>
+    </div>
+
+    <!--  SERVICE AREA (Houston, Conroe, Montgomery)  -->
+    <div class="service-area" id="service-area">
+        <h2>🌎 Where We Work</h2>
+        <p style="font-size:1.15rem; margin-bottom:0.5rem; color:#2b3d1f;">
+            Proudly serving the Greater Houston region and Montgomery County
+        </p>
+        <div class="cities-container">
+            <div class="city-card">
+                <span class="city-icon">🏙️</span>
+                <span>Houston</span>
+            </div>
+            <div class="city-card">
+                <span class="city-icon">🌳</span>
+                <span>Conroe</span>
+            </div>
+            <div class="city-card">
+                <span class="city-icon">🏡</span>
+                <span>Montgomery</span>
+            </div>
+        </div>
+        <div class="region-description">
+            🌾 From urban Houston landscapes to the piney woods of Conroe and historic Montgomery — 
+            we bring native plant expertise and reliable yard care throughout Southeast Texas.
+        </div>
+    </div>
+
+    <!--  CONTACT SECTION with phone and email  -->
+    <div class="contact-highlight" id="contact">
+        <h2 style="font-size:1.9rem; margin-bottom:0.5rem;">Let's Talk About Your Yard</h2>
+        <p style="font-size:1.1rem; opacity:0.9;">Reach out for a friendly consultation or schedule service</p>
+        <div class="contact-details">
+            <div class="contact-item">
+                <span>📞</span>
+                <a href="tel:+16015978142">(601) 597-8142</a>
+            </div>
+            <div class="contact-item">
+                <span>✉️</span>
+                <a href="mailto:Wildflowerlawns@gmail.com">Wildflowerlawns@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!--  FOOTER  -->
+    <footer>
+        <p>© 2026 <span>Wildflower Yard Works</span> — Houston • Conroe • Montgomery, Texas</p>
+        <p style="margin-top:0.4rem;">🌼 Rooted in nature. Growing community.</p>
+    </footer>
+
+</body>
+</html>
