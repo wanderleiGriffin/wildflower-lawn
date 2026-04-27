@@ -348,6 +348,41 @@
             display: block;
         }
 
+        .error-message {
+            display: none;
+            background: #fce4e4;
+            color: #8b1a1a;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            border: 1px solid #e8b4b4;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .email-fallback {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #fef9e7;
+            border-radius: 20px;
+            border: 1px solid #f0e4b8;
+        }
+
+        .email-fallback p {
+            margin-bottom: 0.5rem;
+            color: #5a4a1a;
+        }
+
+        .email-fallback a {
+            color: #2a4822;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: underline;
+        }
+
         .mission-section {
             max-width: 1100px;
             margin: 3.5rem auto;
@@ -530,74 +565,80 @@
         <a href="#upload" class="cta-button">📸 Send Lawn Photos for Quick Quote</a>
     </section>
 
-    <!-- 🌿 PHOTO UPLOAD SECTION - Using Web3Forms (No account needed!) -->
+    <!-- 🌿 PHOTO UPLOAD SECTION - Working with FormSubmit -->
     <div class="upload-quote-section" id="upload">
         <h2>
             <span>📷</span> Get a Faster Quote
         </h2>
-        <p class="upload-subtitle">Snap a few photos of your lawn and tell us about your project. They'll land right in my inbox at <strong>3wildflowerlawns@gmail.com</strong>.</p>
+        <p class="upload-subtitle">Fill out the form below and I'll get back to you with a personalized estimate. For photos, use the email link below the form.</p>
         
         <div class="success-message" id="successMessage">
-            ✅ <strong>Thank you!</strong> Your photos and request have been sent successfully. I'll review your lawn and get back to you with a personalized quote within 24 hours.
+            ✅ <strong>Thank you!</strong> Your request has been sent successfully. I'll get back to you with a personalized quote within 24 hours. If you have photos to share, please email them to <strong>3wildflowerlawns@gmail.com</strong>.
         </div>
 
-        <!-- 
-        ⚠️ IMPORTANT - REPLACE THE ACCESS KEY BELOW:
-        1. Go to https://web3forms.com/ (NO signup required)
-        2. Enter your email: 3wildflowerlawns@gmail.com
-        3. Click "Get Access Key" button
-        4. Check your Gmail for the access key
-        5. Replace "YOUR-ACCESS-KEY-HERE" below with your actual key
-        -->
-        <form class="photo-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-            
-            <!-- Replace this access key with your own from Web3Forms -->
-            <input type="hidden" name="access_key" value="9cd38387-90a4-4bdf-bff9-20499ff33bed">
-            
-            <!-- Where to send the email -->
-            <input type="hidden" name="from_name" value="Wildflower Yard Works Quote Request">
-            <input type="hidden" name="subject" value="New Lawn Photo Quote Request">
-            
-            <!-- Redirect after submission (optional) -->
-            <input type="hidden" name="redirect" value="false">
+        <div class="error-message" id="errorMessage">
+            ❌ <strong>Oops!</strong> Something went wrong. Please try again or contact me directly at <strong>(601) 597-8142</strong>.
+        </div>
 
+        <form class="photo-form" id="quoteForm" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST">
+            
+            <!-- FormSubmit configuration -->
+            <input type="hidden" name="_subject" value="New Quote Request - Wildflower Yard Works">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="false">
+            
             <div class="input-group">
                 <div class="input-field">
                     <label>Your Name *</label>
-                    <input type="text" name="name" placeholder="Jane Smith" required>
+                    <input type="text" name="Name" placeholder="Jane Smith" required>
                 </div>
                 <div class="input-field">
                     <label>Email Address *</label>
-                    <input type="email" name="email" placeholder="jane@example.com" required>
+                    <input type="email" name="Email" placeholder="jane@example.com" required>
                 </div>
             </div>
             <div class="input-group">
                 <div class="input-field">
                     <label>Phone (optional)</label>
-                    <input type="tel" name="phone" placeholder="(281) 555-0192">
+                    <input type="tel" name="Phone" placeholder="(281) 555-0192">
                 </div>
                 <div class="input-field">
                     <label>Service City *</label>
-                    <input type="text" name="city" placeholder="Houston, Conroe or Montgomery" required>
+                    <input type="text" name="City" placeholder="Houston, Conroe or Montgomery" required>
                 </div>
             </div>
             <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
-                <label>Brief description (what do you need?)</label>
-                <textarea name="message" rows="3" placeholder="e.g., native plant bed, mowing, overgrown yard cleanup..."></textarea>
+                <label>Service Needed</label>
+                <select name="Service" style="padding: 0.8rem 1rem; border: 1px solid #ddd6c0; border-radius: 18px; font-family: 'Inter', sans-serif; background: #fdfdf9; font-size: 0.95rem; width: 100%;">
+                    <option value="">Select a service...</option>
+                    <option value="Native Plant Bed">Native Plant Bed Installation</option>
+                    <option value="Lawn Mowing">Lawn Mowing & Maintenance</option>
+                    <option value="Yard Cleanup">Overgrown Yard Cleanup</option>
+                    <option value="Pollinator Garden">Pollinator Garden Design</option>
+                    <option value="Water Conservation">Water-Conscious Landscaping</option>
+                    <option value="Other">Other / Not Sure</option>
+                </select>
+            </div>
+            <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
+                <label>Brief description</label>
+                <textarea name="Message" rows="3" placeholder="Tell me about your yard and what you need..."></textarea>
             </div>
 
-            <div class="file-upload-area" id="fileDropZone">
-                <label for="lawn-photos" class="file-upload-label">
-                    <span class="file-icon">🌾📂</span>
-                    <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload lawn images</span>
-                </label>
-                <input type="file" id="lawn-photos" name="lawn_photos" accept="image/*" multiple>
-                <div id="file-chosen">No files selected yet</div>
-            </div>
-
-            <button type="submit" class="submit-btn" id="submitBtn">✨ Send Photos & Request Quote</button>
-            <p class="note-text">📬 Your photos and details will be emailed to 3wildflowerlawns@gmail.com — I'll reply with a personalized estimate quickly.</p>
+            <button type="submit" class="submit-btn" id="submitBtn">✨ Send Request for Free Quote</button>
+            
+            <p class="note-text">📬 Your request will be emailed to 3wildflowerlawns@gmail.com</p>
         </form>
+
+        <!-- Fallback option for photos -->
+        <div class="email-fallback">
+            <p>📸 <strong>Have photos of your lawn?</strong></p>
+            <p>For the quickest quote, email your lawn photos directly to:</p>
+            <a href="mailto:3Wildflowerlawns@gmail.com?subject=Lawn Photos for Quote&body=Hi! Here are photos of my lawn for a quote. My name is: [Your Name]%0D%0AMy phone number: [Your Phone]%0D%0AService needed: [What you need]">
+                📧 3Wildflowerlawns@gmail.com
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #6b6b4b;">Click the email above — it will open your email app with a pre-written message!</p>
+        </div>
     </div>
 
     <div class="mission-section" id="mission">
@@ -639,73 +680,20 @@
 
     <script>
         (function() {
-            const fileInput = document.getElementById('lawn-photos');
-            const fileChosen = document.getElementById('file-chosen');
-            const dropZone = document.getElementById('fileDropZone');
-            const uploadText = document.getElementById('uploadText');
             const form = document.getElementById('quoteForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
 
-            if (fileInput) {
-                fileInput.addEventListener('change', function() {
-                    updateFileDisplay(this.files);
-                });
-            }
-
-            // Drag and drop handling
-            if (dropZone) {
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, preventDefaults, false);
-                });
-
-                function preventDefaults(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-
-                ['dragenter', 'dragover'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, () => {
-                        dropZone.style.borderColor = '#b89b5b';
-                        dropZone.style.background = '#f7f3e2';
-                    });
-                });
-
-                ['dragleave', 'drop'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, () => {
-                        dropZone.style.borderColor = '#cbbd82';
-                        dropZone.style.background = '#fbfaf2';
-                    });
-                });
-
-                dropZone.addEventListener('drop', function(e) {
-                    const dt = e.dataTransfer;
-                    const files = dt.files;
-                    if (files.length && fileInput) {
-                        fileInput.files = files;
-                        updateFileDisplay(files);
-                    }
-                });
-            }
-
-            function updateFileDisplay(files) {
-                if (!files || files.length === 0) {
-                    fileChosen.textContent = 'No files selected yet';
-                    if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images';
-                    return;
-                }
-                const nameList = Array.from(files).map(f => f.name).join(', ');
-                fileChosen.textContent = `📎 ${files.length} file(s): ${nameList}`;
-                if (uploadText && files.length) {
-                    uploadText.innerHTML = `<strong>${files.length} image(s) selected</strong><br>Click to change or add more`;
-                }
-            }
-
-            // Form submission with Web3Forms
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
+                    // Hide any previous messages
+                    successMessage.classList.remove('show');
+                    errorMessage.classList.remove('show');
+                    
+                    // Show loading state
                     submitBtn.disabled = true;
                     submitBtn.textContent = '⏳ Sending...';
                     
@@ -714,27 +702,31 @@
                     try {
                         const response = await fetch(form.action, {
                             method: 'POST',
-                            body: formData
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
                         });
                         
-                        const result = await response.json();
-                        
-                        if (result.success) {
-                            // Show success message
+                        if (response.ok) {
+                            // Success!
                             successMessage.classList.add('show');
                             form.reset();
-                            fileChosen.textContent = 'No files selected yet';
-                            if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images';
                             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         } else {
-                            alert('Oops! Something went wrong. Please try again or call me directly at (601) 597-8142.');
+                            // Error
+                            errorMessage.classList.add('show');
+                            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                     } catch (error) {
-                        alert('Oops! Something went wrong. Please try again or call me directly at (601) 597-8142.');
+                        // Network error
+                        errorMessage.classList.add('show');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                     
+                    // Reset button
                     submitBtn.disabled = false;
-                    submitBtn.textContent = '✨ Send Photos & Request Quote';
+                    submitBtn.textContent = '✨ Send Request for Free Quote';
                 });
             }
         })();
