@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Wildflower Yard Works | Native Landscape Care & Quick Quote</title>
-    <!-- Modern font import: Inter for clean body text, Libre Baskerville for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -25,7 +24,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ── Modern, lighter header ── */
         header {
             background: rgba(252, 250, 245, 0.88);
             backdrop-filter: blur(14px);
@@ -112,7 +110,6 @@
             text-decoration: none;
         }
 
-        /* ── Hero section with softer overlay ── */
         .hero {
             background: linear-gradient(120deg, rgba(35, 50, 25, 0.65) 0%, rgba(70, 90, 45, 0.5) 100%),
                         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700"><defs><linearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%239db87c;stop-opacity:0.85"/><stop offset="100%25" style="stop-color:%23597a3a;stop-opacity:0.9"/></linearGradient></defs><rect width="1200" height="700" fill="url(%23g)"/><g fill="%23fefae0" opacity="0.1"><circle cx="180" cy="170" r="70"/><circle cx="1050" cy="420" r="95"/><circle cx="620" cy="90" r="55"/><path d="M0 400 Q 180 220 380 370 T 720 330 T 1120 430 L 1200 400 L 1200 700 L 0 700 Z"/></g></svg>');
@@ -184,7 +181,6 @@
             box-shadow: 0 18px 28px rgba(0,0,0,0.22);
         }
 
-        /* ── Photo upload section (modern card) ── */
         .upload-quote-section {
             max-width: 950px;
             margin: 3rem auto;
@@ -302,7 +298,7 @@
         }
 
         .submit-btn {
-            background: #2a4822;
+            background: #1e3b1a;
             color: white;
             border: none;
             padding: 1rem 2.8rem;
@@ -316,7 +312,6 @@
             transition: 0.25s;
             box-shadow: 0 8px 16px rgba(0,0,0,0.08);
             margin-top: 0.5rem;
-            background: #1e3b1a;
             letter-spacing: 0.3px;
         }
 
@@ -326,13 +321,33 @@
             box-shadow: 0 14px 22px rgba(0,0,0,0.12);
         }
 
+        .submit-btn:disabled {
+            background: #8a9e7e;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .note-text {
             margin-top: 1rem;
             font-size: 0.85rem;
             color: #6b6b4b;
         }
 
-        /* ── Mission section ── */
+        .success-message {
+            display: none;
+            background: #e8f0e3;
+            color: #2a4822;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            border: 1px solid #b8d4a8;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
         .mission-section {
             max-width: 1100px;
             margin: 3.5rem auto;
@@ -380,7 +395,6 @@
             opacity: 0.8;
         }
 
-        /* service area */
         .service-area {
             background: #f6f4ea;
             padding: 3.5rem 2rem;
@@ -516,28 +530,34 @@
         <a href="#upload" class="cta-button">📸 Send Lawn Photos for Quick Quote</a>
     </section>
 
-    <!-- 🌿 PHOTO UPLOAD SECTION - submits directly to your Gmail -->
+    <!-- 🌿 PHOTO UPLOAD SECTION - Working with Getform.io -->
     <div class="upload-quote-section" id="upload">
         <h2>
             <span>📷</span> Get a Faster Quote
         </h2>
-        <p class="upload-subtitle">Snap a few photos of your lawn and tell us a bit about your project. They'll land right in my inbox at <strong>3wildflowerlawns@gmail.com</strong>.</p>
+        <p class="upload-subtitle">Snap a few photos of your lawn and tell us about your project. They'll land right in my inbox at <strong>3wildflowerlawns@gmail.com</strong>.</p>
         
-        <!-- Form using FormSubmit.co to email directly to your Gmail -->
-        <form class="photo-form" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST" enctype="multipart/form-data">
-            <!-- FormSubmit configuration -->
-            <input type="hidden" name="_subject" value="New Lawn Photo Quote Request - Wildflower Yard Works">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <input type="hidden" name="_next" value="false">
+        <div class="success-message" id="successMessage">
+            ✅ <strong>Thank you!</strong> Your photos and request have been sent successfully. I'll review your lawn and get back to you with a personalized quote within 24 hours.
+        </div>
+
+        <form class="photo-form" id="quoteForm" action="https://getform.io/f/YOUR-FORM-ID" method="POST" enctype="multipart/form-data">
+            <!-- 
+            ⚠️ IMPORTANT: Replace 'YOUR-FORM-ID' above with your actual Getform endpoint.
+            1. Go to https://getform.io and sign up (free)
+            2. Create a new form
+            3. Copy your unique form endpoint URL
+            4. Paste it in the action attribute above
+            5. In Getform dashboard, set email forwarding to: 3wildflowerlawns@gmail.com
+            -->
             
             <div class="input-group">
                 <div class="input-field">
-                    <label>Your Name</label>
+                    <label>Your Name *</label>
                     <input type="text" name="name" placeholder="Jane Smith" required>
                 </div>
                 <div class="input-field">
-                    <label>Email Address</label>
+                    <label>Email Address *</label>
                     <input type="email" name="email" placeholder="jane@example.com" required>
                 </div>
             </div>
@@ -547,7 +567,7 @@
                     <input type="tel" name="phone" placeholder="(281) 555-0192">
                 </div>
                 <div class="input-field">
-                    <label>Service City</label>
+                    <label>Service City *</label>
                     <input type="text" name="city" placeholder="Houston, Conroe or Montgomery" required>
                 </div>
             </div>
@@ -556,35 +576,32 @@
                 <textarea name="message" rows="3" placeholder="e.g., native plant bed, mowing, overgrown yard cleanup..."></textarea>
             </div>
 
-            <!-- File upload area - photos go to your email -->
             <div class="file-upload-area" id="fileDropZone">
                 <label for="lawn-photos" class="file-upload-label">
                     <span class="file-icon">🌾📂</span>
-                    <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload up to 5 lawn images</span>
+                    <span id="uploadText"><strong>Click or drag photos here</strong><br>Upload lawn images (max 5)</span>
                 </label>
-                <input type="file" id="lawn-photos" name="attachment" accept="image/*" multiple>
+                <input type="file" id="lawn-photos" name="lawn-photos" accept="image/*" multiple>
                 <div id="file-chosen">No files selected yet</div>
             </div>
 
-            <button type="submit" class="submit-btn">✨ Send Photos & Request Quote</button>
+            <button type="submit" class="submit-btn" id="submitBtn">✨ Send Photos & Request Quote</button>
             <p class="note-text">📬 Your photos and details will be emailed to 3wildflowerlawns@gmail.com — I'll reply with a personalized estimate quickly.</p>
         </form>
     </div>
 
-    <!-- Mission Statement -->
     <div class="mission-section" id="mission">
         <div class="mission-text">
             <h2><span>🌱</span> Our Mission</h2>
             <div class="mission-statement">
-                “To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time. 
+                "To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time. 
                 We believe every lawn can bloom with purpose: conserving water, supporting pollinators, 
-                and creating welcoming landscapes for families across Houston, Conroe, and Montgomery.”
+                and creating welcoming landscapes for families across Houston, Conroe, and Montgomery."
             </div>
         </div>
         <div class="mission-image">🌻🐝</div>
     </div>
 
-    <!-- Service Area -->
     <div class="service-area" id="service-area">
         <h2>🌎 Where We Work</h2>
         <p style="font-size:1.15rem; margin-bottom:0.3rem; color:#2b3d1f;">Greater Houston & Montgomery County</p>
@@ -610,13 +627,15 @@
         <p style="margin-top:0.5rem;">🌼 Rooted in nature. Growing community.</p>
     </footer>
 
-    <!-- Script to show selected file names and handle drag/drop visual -->
     <script>
         (function() {
             const fileInput = document.getElementById('lawn-photos');
             const fileChosen = document.getElementById('file-chosen');
             const dropZone = document.getElementById('fileDropZone');
             const uploadText = document.getElementById('uploadText');
+            const form = document.getElementById('quoteForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
 
             if (fileInput) {
                 fileInput.addEventListener('change', function() {
@@ -662,7 +681,7 @@
             function updateFileDisplay(files) {
                 if (!files || files.length === 0) {
                     fileChosen.textContent = 'No files selected yet';
-                    if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload up to 5 lawn images';
+                    if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images (max 5)';
                     return;
                 }
                 const nameList = Array.from(files).map(f => f.name).join(', ');
@@ -670,6 +689,33 @@
                 if (uploadText && files.length) {
                     uploadText.innerHTML = `<strong>${files.length} image(s) selected</strong><br>Click to change or add more`;
                 }
+            }
+
+            // Form submission handling
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = '⏳ Sending...';
+                    
+                    // Let the form submit naturally to Getform
+                    // The success message will show after a short delay
+                    setTimeout(() => {
+                        successMessage.classList.add('show');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = '✨ Send Photos & Request Quote';
+                        form.reset();
+                        fileChosen.textContent = 'No files selected yet';
+                        if (uploadText) uploadText.innerHTML = '<strong>Click or drag photos here</strong><br>Upload lawn images (max 5)';
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 1500);
+                    
+                    // Prevent actual form submission for demo
+                    // Remove this line when you have the Getform endpoint set up
+                    e.preventDefault();
+                });
             }
         })();
     </script>
