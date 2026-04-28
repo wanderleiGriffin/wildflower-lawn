@@ -230,7 +230,8 @@
         .option-card.selected {
             border-color: #2a4822;
             background: #f4f9ee;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
         }
 
         .option-icon {
@@ -308,7 +309,8 @@
             margin-bottom: 2rem;
             font-weight: 600;
             color: #2a4822;
-            border: 1px solid #b8d4a8;
+            border: 2px solid #2a4822;
+            font-size: 1.1rem;
         }
 
         .calendly-container {
@@ -495,7 +497,6 @@
             font-size: 1.1rem;
         }
 
-        /* Other sections */
         .mission-section {
             max-width: 1100px;
             margin: 3rem auto;
@@ -684,23 +685,23 @@
 
     <!-- 🌿 LAWN MOWING OPTIONS -->
     <div class="mowing-options" id="mowing">
-        <h2>🌿 Lawn Mowing Services</h2>
-        <p class="subtitle">Choose your service, then pick a date on the calendar below</p>
+        <h2>🌿 Choose Your Lawn Mowing Service</h2>
+        <p class="subtitle">Select a service — your choice will appear on the calendar when you book</p>
         
         <div class="options-grid">
-            <div class="option-card" onclick="selectService('basic')" id="basic-card">
+            <div class="option-card" id="basic-card" onclick="selectService('basic', 'Basic Mow', '$45/visit')">
                 <div class="option-icon">🏡</div>
                 <h3>Basic Mow</h3>
                 <div class="price">$45<span>/visit</span></div>
                 <ul>
                     <li>Mowing & trimming</li>
                     <li>Edging along walkways</li>
-                    <li>Blowing clippings off hard surfaces</li>
+                    <li>Blowing clippings</li>
                     <li>Small to medium yards</li>
                 </ul>
             </div>
             
-            <div class="option-card" onclick="selectService('premium')" id="premium-card">
+            <div class="option-card" id="premium-card" onclick="selectService('premium', 'Premium Mow', '$75/visit')">
                 <div class="option-icon">🌟</div>
                 <h3>Premium Mow</h3>
                 <div class="price">$75<span>/visit</span></div>
@@ -712,19 +713,19 @@
                 </ul>
             </div>
             
-            <div class="option-card" onclick="selectService('recurring')" id="recurring-card">
+            <div class="option-card" id="recurring-card" onclick="selectService('recurring', 'Recurring Service', '$40/visit')">
                 <div class="option-icon">🔄</div>
                 <h3>Recurring Service</h3>
                 <div class="price">$40<span>/visit</span></div>
                 <ul>
-                    <li>Weekly or bi-weekly mowing</li>
+                    <li>Weekly or bi-weekly</li>
                     <li>Priority scheduling</li>
-                    <li>Consistent yard maintenance</li>
+                    <li>Consistent maintenance</li>
                     <li>Save $5 per visit</li>
                 </ul>
             </div>
             
-            <div class="option-card" onclick="selectService('custom')" id="custom-card">
+            <div class="option-card" id="custom-card" onclick="selectService('custom', 'Custom Quote', 'Contact for price')">
                 <div class="option-icon">📋</div>
                 <h3>Custom Quote</h3>
                 <div class="price">$?<span>/custom</span></div>
@@ -737,19 +738,21 @@
             </div>
         </div>
         
-        <div class="selected-service-display" id="selectedServiceDisplay" style="display: none;">
-            📌 Selected: <span id="selectedServiceName">Basic Mow</span> — Now pick your date below
+        <div class="selected-service-display" id="selectedServiceDisplay">
+            📌 <strong>Selected Service:</strong> <span id="selectedServiceText">None yet — click a service above</span>
         </div>
+        <p style="color: #6b7b5a; font-size: 0.9rem; margin-top: 0.5rem;">Your selection will be pre-filled on the Calendly booking form</p>
     </div>
 
     <!-- 📅 SCHEDULING CALENDAR -->
     <div class="scheduling-section" id="schedule">
         <h2>📅 Pick Your Mowing Day & Time</h2>
-        <p class="scheduling-subtitle">Click a date on the calendar, choose your preferred time, and fill in your details.</p>
+        <p class="scheduling-subtitle">Your selected service and price will appear on the booking form</p>
         
         <div class="calendly-container">
             <iframe 
-                src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1" 
+                id="calendlyFrame"
+                src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1"
                 title="Schedule Lawn Mowing Service"
                 loading="lazy"
                 allowfullscreen
@@ -769,17 +772,17 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h4>Choose Service</h4>
-                <p>Select your mowing package above</p>
+                <p>Click your mowing package above</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <h4>Pick Date & Time</h4>
-                <p>Click an available date on the calendar</p>
+                <p>Select an available slot on the calendar</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <h4>Enter Details</h4>
-                <p>Add your address and any special instructions</p>
+                <p>Add your address & instructions — service & price are pre-filled!</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
@@ -898,8 +901,17 @@
     </footer>
 
     <script>
-        // Service selection
-        function selectService(serviceType) {
+        // Current selected service
+        let currentService = {
+            type: '',
+            name: '',
+            price: ''
+        };
+
+        // Calendly base URL
+        const calendlyBaseURL = 'https://calendly.com/3wildflowerlawns/lawn-mowing-service';
+        
+        function selectService(serviceType, serviceName, servicePrice) {
             // Remove selected class from all cards
             document.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
@@ -908,58 +920,30 @@
             // Add selected class to clicked card
             document.getElementById(serviceType + '-card').classList.add('selected');
             
-            // Update display
-            const serviceNames = {
-                'basic': 'Basic Mow — $45/visit',
-                'premium': 'Premium Mow — $75/visit',
-                'recurring': 'Recurring Service — $40/visit',
-                'custom': 'Custom Quote'
+            // Update current service
+            currentService = {
+                type: serviceType,
+                name: serviceName,
+                price: servicePrice
             };
             
-            document.getElementById('selectedServiceName').textContent = serviceNames[serviceType];
-            document.getElementById('selectedServiceDisplay').style.display = 'inline-block';
+            // Update display
+            document.getElementById('selectedServiceText').textContent = serviceName + ' — ' + servicePrice;
+            
+            // Update Calendly iframe with pre-filled data
+            updateCalendlyFrame();
             
             // Scroll to calendar
             document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Form submission
-        (function() {
-            const form = document.getElementById('quoteForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-
-            if (form) {
-                form.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    successMessage.classList.remove('show');
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = '⏳ Sending...';
-                    
-                    const formData = new FormData(form);
-                    
-                    try {
-                        const response = await fetch(form.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: { 'Accept': 'application/json' }
-                        });
-                        
-                        if (response.ok) {
-                            successMessage.classList.add('show');
-                            form.reset();
-                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                    } catch (error) {
-                        successMessage.classList.add('show');
-                        form.reset();
-                    }
-                    
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '✨ Send Request';
-                });
-            }
-        })();
-    </script>
-</body>
-</
+        
+        function updateCalendlyFrame() {
+            const calendlyFrame = document.getElementById('calendlyFrame');
+            
+            if (currentService.type) {
+                // Build URL with pre-filled invitee questions
+                // Calendly uses 'name' and 'email' as standard params
+                // For custom questions, use 'a1', 'a2', etc. based on your question order
+                const params = new URLSearchParams();
+                
+                // Add service
