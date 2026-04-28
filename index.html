@@ -9,941 +9,232 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.5;
-            color: #2b3b2c;
-            background-color: #fcfaf5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        header {
-            background: rgba(252, 250, 245, 0.92);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            color: #1e3b1a;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(120, 110, 70, 0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2a4822;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #2b3b2c;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            padding-bottom: 4px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-links a:hover {
-            border-bottom-color: #c7a44d;
-            color: #1e3b1a;
-        }
-
-        .contact-badge {
-            background: #f0ede0;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            border: 1px solid #d9d2b8;
-            color: #2a4822;
-        }
-
-        .contact-badge a {
-            color: #2a4822;
-            text-decoration: none;
-        }
-
-        .hero {
-            background: linear-gradient(120deg, rgba(35, 50, 25, 0.7) 0%, rgba(70, 90, 45, 0.55) 100%),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700"><defs><linearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%239db87c;stop-opacity:0.85"/><stop offset="100%25" style="stop-color:%23597a3a;stop-opacity:0.9"/></linearGradient></defs><rect width="1200" height="700" fill="url(%23g)"/><g fill="%23fefae0" opacity="0.1"><circle cx="180" cy="170" r="70"/><circle cx="1050" cy="420" r="95"/><circle cx="620" cy="90" r="55"/></g></svg>');
-            background-size: cover;
-            background-position: center;
-            padding: 4rem 2rem;
-            text-align: center;
-            color: #fff;
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 0 0 2.5rem 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 3.5rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.45);
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .service-area-highlight {
-            background: rgba(250, 245, 235, 0.2);
-            backdrop-filter: blur(10px);
-            display: inline-block;
-            padding: 0.6rem 2rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255,255,240,0.5);
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .cta-button {
-            background: #fceeba;
-            color: #1e3b1a;
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-        }
-
-        .cta-button.secondary {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.4);
-        }
-
-        .cta-button:hover {
-            background: #fef3cf;
-            transform: translateY(-4px);
-            box-shadow: 0 18px 28px rgba(0,0,0,0.22);
-        }
-
-        /* ── Mowing Options Section ── */
-        .mowing-options {
-            max-width: 1100px;
-            margin: 2rem auto 3rem;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .mowing-options h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2rem;
-            color: #1e3b1a;
-            margin-bottom: 1rem;
-        }
-
-        .mowing-options .subtitle {
-            color: #4a5e3f;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .option-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            border: 2px solid #e8e5d5;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .option-card:hover {
-            border-color: #b89b5b;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transform: translateY(-5px);
-        }
-
-        .option-card.selected {
-            border-color: #2a4822;
-            background: #f4f9ee;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            transform: translateY(-5px);
-        }
-
-        .option-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .option-card h3 {
-            color: #2a4822;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .option-card .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1e3b1a;
-            margin: 0.5rem 0;
-        }
-
-        .option-card .price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #6b7b5a;
-        }
-
-        .option-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1rem 0;
-            color: #5a6b4a;
-            font-size: 0.9rem;
-        }
-
-        .option-card ul li {
-            padding: 0.3rem 0;
-        }
-
-        .option-card ul li::before {
-            content: "✓ ";
-            color: #2a4822;
-            font-weight: 700;
-        }
-
-        /* ── Scheduling Section ── */
-        .scheduling-section {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 2.5rem;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.04);
-            border: 1px solid #eee8d5;
-            text-align: center;
-        }
-
-        .scheduling-section h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.2rem;
-            color: #1e3b1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .scheduling-subtitle {
-            color: #4a5e3f;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .selected-service-display {
-            background: #f4f9ee;
-            padding: 1rem 2rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            color: #2a4822;
-            border: 2px solid #2a4822;
-            font-size: 1.1rem;
-        }
-
-        .calendly-container {
-            width: 100%;
-            min-height: 700px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid #e8e5d5;
-            margin-top: 1rem;
-            background: #fdfdfd;
-        }
-
-        .calendly-container iframe {
-            width: 100%;
-            height: 700px;
-            border: none;
-        }
-
-        /* ── How It Works ── */
-        .how-it-works {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .how-it-works h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2rem;
-            color: #1e3b1a;
-            margin-bottom: 2rem;
-        }
-
-        .steps-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .step {
-            flex: 1 1 200px;
-            max-width: 250px;
-            text-align: center;
-        }
-
-        .step-number {
-            background: #2a4822;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-
-        .step h4 {
-            color: #2a4822;
-            margin-bottom: 0.5rem;
-        }
-
-        .step p {
-            color: #5a6b4a;
-            font-size: 0.9rem;
-        }
-
-        /* ── Quote Section ── */
-        .upload-quote-section {
-            max-width: 950px;
-            margin: 3rem auto;
-            padding: 2.5rem;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.04);
-            border: 1px solid #eee8d5;
-            text-align: center;
-        }
-
-        .upload-quote-section h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2rem;
-            color: #1e3b1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .upload-subtitle {
-            color: #4a5e3f;
-            margin-bottom: 2rem;
-        }
-
-        .photo-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .input-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .input-field {
-            flex: 1 1 220px;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .input-field label {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: #2d4624;
-            font-size: 0.9rem;
-        }
-
-        .input-field input, .input-field textarea, .input-field select {
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd6c0;
-            border-radius: 18px;
-            font-family: 'Inter', sans-serif;
-            background: #fdfdf9;
-            font-size: 0.95rem;
-            transition: 0.2s;
-        }
-
-        .input-field input:focus, .input-field textarea:focus, .input-field select:focus {
-            outline: none;
-            border-color: #b89b5b;
-            box-shadow: 0 0 0 3px rgba(184,155,91,0.15);
-        }
-
-        .submit-btn {
-            background: #1e3b1a;
-            color: white;
-            border: none;
-            padding: 1rem 2.8rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.25s;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-        }
-
-        .submit-btn:hover {
-            background: #2f5427;
-            transform: translateY(-2px);
-        }
-
-        .success-message {
-            display: none;
-            background: #e8f0e3;
-            color: #2a4822;
-            padding: 1.5rem;
-            border-radius: 20px;
-            margin-top: 1.5rem;
-            font-weight: 500;
-            border: 1px solid #b8d4a8;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .email-fallback {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #fef9e7;
-            border-radius: 20px;
-            border: 1px solid #f0e4b8;
-        }
-
-        .email-fallback a {
-            color: #2a4822;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .mission-section {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 2rem 2.5rem;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2rem;
-            border: 1px solid #f0ecdb;
-        }
-
-        .mission-text {
-            flex: 1 1 500px;
-        }
-
-        .mission-text h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2rem;
-            color: #2a4822;
-            margin-bottom: 1rem;
-        }
-
-        .mission-statement {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #3f5237;
-            background: #fafaf5;
-            padding: 1.5rem 2rem;
-            border-radius: 24px;
-            border-left: 5px solid #b89b5b;
-            font-style: italic;
-        }
-
-        .mission-image {
-            flex: 0 0 150px;
-            text-align: center;
-            font-size: 6rem;
-            opacity: 0.8;
-        }
-
-        .service-area {
-            background: #f6f4ea;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 2.5rem 2.5rem 0 0;
-            margin-top: 1rem;
-        }
-
-        .service-area h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2rem;
-            color: #1e3b1a;
-        }
-
-        .cities-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .city-card {
-            background: white;
-            border-radius: 2rem;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #2a4822;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.2s;
-        }
-
-        .city-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.06);
-        }
-
-        .region-description {
-            max-width: 700px;
-            margin: 1.5rem auto;
-            font-size: 1rem;
-            background: rgba(255,255,250,0.8);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-        }
-
-        .contact-highlight {
-            background: #2a4822;
-            color: white;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            border-radius: 0 0 2.5rem 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,240,0.08);
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-        }
-
-        .contact-item a {
-            color: #f7e5a1;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer {
-            background: #f2efe2;
-            color: #2b3b2c;
-            text-align: center;
-            padding: 2rem;
-            border-radius: 2rem 2rem 0 0;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .mission-section {
-                flex-direction: column;
-            }
-            .calendly-container iframe {
-                height: 600px;
-            }
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.5; color: #2b3b2c; background-color: #fcfaf5; -webkit-font-smoothing: antialiased; }
+        header { background: rgba(252, 250, 245, 0.92); backdrop-filter: blur(14px); color: #1e3b1a; padding: 1rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(120,110,70,0.15); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; font-family: 'Libre Baskerville', serif; font-size: 1.5rem; font-weight: 600; color: #2a4822; text-decoration: none; }
+        .logo-icon { font-size: 2rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; align-items: center; }
+        .nav-links a { color: #2b3b2c; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; }
+        .nav-links a:hover { border-bottom-color: #c7a44d; color: #1e3b1a; }
+        .contact-badge { background: #f0ede0; padding: 0.5rem 1.2rem; border-radius: 40px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; border: 1px solid #d9d2b8; color: #2a4822; }
+        .contact-badge a { color: #2a4822; text-decoration: none; }
+        .hero { background: linear-gradient(120deg, rgba(35,50,25,0.7), rgba(70,90,45,0.55)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700"><rect width="1200" height="700" fill="%23597a3a"/></svg>'); background-size: cover; padding: 4rem 2rem; text-align: center; color: #fff; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 2.5rem 2.5rem; margin-bottom: 2rem; }
+        .hero h1 { font-family: 'Libre Baskerville', serif; font-size: 3.5rem; font-weight: 600; margin-bottom: 0.8rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.45); }
+        .hero .tagline { font-size: 1.5rem; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
+        .service-area-highlight { background: rgba(250,245,235,0.2); backdrop-filter: blur(10px); padding: 0.6rem 2rem; border-radius: 50px; font-size: 1.2rem; margin-bottom: 2rem; border: 1px solid rgba(255,255,240,0.5); }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .cta-button { background: #fceeba; color: #1e3b1a; font-weight: 700; font-size: 1.2rem; padding: 1rem 2.5rem; border-radius: 60px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+        .cta-button.secondary { background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
+        .mowing-options { max-width: 1100px; margin: 2rem auto 3rem; padding: 2rem; text-align: center; }
+        .mowing-options h2 { font-family: 'Libre Baskerville', serif; font-size: 2rem; color: #1e3b1a; margin-bottom: 1rem; }
+        .subtitle { color: #4a5e3f; margin-bottom: 2rem; font-size: 1.1rem; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .option-card { background: white; border-radius: 20px; padding: 2rem 1.5rem; border: 2px solid #e8e5d5; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+        .option-card:hover { border-color: #b89b5b; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-5px); }
+        .option-card.selected { border-color: #2a4822; background: #f4f9ee; box-shadow: 0 10px 25px rgba(0,0,0,0.12); transform: translateY(-5px); }
+        .option-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .option-card h3 { color: #2a4822; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .option-card .price { font-size: 2rem; font-weight: 700; color: #1e3b1a; }
+        .option-card .price span { font-size: 1rem; font-weight: 400; color: #6b7b5a; }
+        .option-card ul { list-style: none; text-align: left; margin: 1rem 0; color: #5a6b4a; font-size: 0.9rem; }
+        .option-card ul li { padding: 0.3rem 0; }
+        .option-card ul li::before { content: "✓ "; color: #2a4822; font-weight: 700; }
+        .scheduling-section { max-width: 1100px; margin: 3rem auto; padding: 2.5rem; background: #fff; border-radius: 2.5rem; box-shadow: 0 20px 35px rgba(0,0,0,0.04); border: 1px solid #eee8d5; text-align: center; }
+        .scheduling-section h2 { font-family: 'Libre Baskerville', serif; font-size: 2.2rem; color: #1e3b1a; }
+        .selected-service-display { background: #f4f9ee; padding: 1rem 2rem; border-radius: 20px; display: inline-block; margin-bottom: 2rem; font-weight: 600; color: #2a4822; border: 2px solid #2a4822; font-size: 1.1rem; }
+        .calendly-container { width: 100%; min-height: 700px; border-radius: 20px; overflow: hidden; border: 2px solid #e8e5d5; }
+        .calendly-container iframe { width: 100%; height: 700px; border: none; }
+        .how-it-works { max-width: 1100px; margin: 3rem auto; padding: 2rem; text-align: center; }
+        .steps-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .step { flex: 1 1 200px; max-width: 250px; }
+        .step-number { background: #2a4822; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem; }
+        .upload-quote-section { max-width: 950px; margin: 3rem auto; padding: 2.5rem; background: #fff; border-radius: 2.5rem; box-shadow: 0 20px 35px rgba(0,0,0,0.04); border: 1px solid #eee8d5; text-align: center; }
+        .input-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; width: 100%; }
+        .input-field { flex: 1 1 220px; text-align: left; }
+        .input-field label { font-weight: 600; color: #2d4624; font-size: 0.9rem; }
+        .input-field input, .input-field textarea, .input-field select { padding: 0.8rem 1rem; border: 1px solid #ddd6c0; border-radius: 18px; font-family: 'Inter', sans-serif; background: #fdfdf9; font-size: 0.95rem; width: 100%; }
+        .submit-btn { background: #1e3b1a; color: #fff; border: none; padding: 1rem 2.8rem; border-radius: 50px; font-weight: 700; font-size: 1.2rem; cursor: pointer; }
+        .mission-section { max-width: 1100px; margin: 3rem auto; padding: 2rem; background: #fff; border-radius: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; border: 1px solid #f0ecdb; }
+        .service-area { background: #f6f4ea; padding: 3rem 2rem; text-align: center; border-radius: 2.5rem 2.5rem 0 0; }
+        .cities-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin: 2rem 0; }
+        .city-card { background: #fff; border-radius: 2rem; padding: 1.5rem 2rem; font-weight: 600; font-size: 1.2rem; color: #2a4822; }
+        .contact-highlight { background: #2a4822; color: #fff; padding: 2.5rem 2rem; text-align: center; border-radius: 0 0 2.5rem 2.5rem; }
+        .contact-details { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; font-size: 1.2rem; margin-top: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,240,0.08); padding: 0.5rem 1.5rem; border-radius: 40px; }
+        .contact-item a { color: #f7e5a1; text-decoration: none; font-weight: 600; }
+        footer { background: #f2efe2; color: #2b3b2c; text-align: center; padding: 2rem; border-radius: 2rem 2rem 0 0; }
+        .success-message { display: none; background: #e8f0e3; padding: 1.5rem; border-radius: 20px; }
+        .success-message.show { display: block; }
+        .email-fallback { margin-top: 2rem; padding: 1.5rem; background: #fef9e7; border-radius: 20px; border: 1px solid #f0e4b8; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .options-grid { grid-template-columns: 1fr; } .calendly-container iframe { height: 600px; } }
     </style>
 </head>
 <body>
+
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">🌼</span>
-                <span>Wildflower Yard Works</span>
-            </a>
+            <a href="#" class="logo"><span class="logo-icon">🌼</span><span>Wildflower Yard Works</span></a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#mowing">Mowing Services</a></li>
+                <li><a href="#mowing">Services</a></li>
                 <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#quote">Get Quote</a></li>
+                <li><a href="#quote">Quote</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="contact-badge">
-                📞 <a href="tel:+16015978142">(601) 597-8142</a>
-            </div>
+            <div class="contact-badge">📞 <a href="tel:+16015978142">(601) 597-8142</a></div>
         </div>
     </header>
 
     <section class="hero">
         <h1>Wildflower Yard Works</h1>
         <p class="tagline">Native beauty. Naturally maintained. Texas proud.</p>
-        <div class="service-area-highlight">
-            🌿 Houston, Conroe & Montgomery
-        </div>
+        <div class="service-area-highlight">🌿 Houston, Conroe & Montgomery</div>
         <div class="hero-buttons">
             <a href="#mowing" class="cta-button">🌿 Schedule Lawn Mowing</a>
             <a href="#quote" class="cta-button secondary">📸 Get a Quote</a>
         </div>
     </section>
 
-    <!-- 🌿 LAWN MOWING OPTIONS -->
+    <!-- SERVICE OPTIONS -->
     <div class="mowing-options" id="mowing">
         <h2>🌿 Choose Your Lawn Mowing Service</h2>
-        <p class="subtitle">Select a service — your choice will appear on the calendar when you book</p>
-        
+        <p class="subtitle">Click a service — it will be saved and displayed on your booking</p>
         <div class="options-grid">
-            <div class="option-card" id="basic-card" onclick="selectService('basic', 'Basic Mow', '$45/visit')">
-                <div class="option-icon">🏡</div>
-                <h3>Basic Mow</h3>
+            <div class="option-card" id="card-basic" onclick="selectService('basic')">
+                <div class="option-icon">🏡</div><h3>Basic Mow</h3>
                 <div class="price">$45<span>/visit</span></div>
-                <ul>
-                    <li>Mowing & trimming</li>
-                    <li>Edging along walkways</li>
-                    <li>Blowing clippings</li>
-                    <li>Small to medium yards</li>
-                </ul>
+                <ul><li>Mowing & trimming</li><li>Edging walkways</li><li>Blowing clippings</li><li>Small/medium yards</li></ul>
             </div>
-            
-            <div class="option-card" id="premium-card" onclick="selectService('premium', 'Premium Mow', '$75/visit')">
-                <div class="option-icon">🌟</div>
-                <h3>Premium Mow</h3>
+            <div class="option-card" id="card-premium" onclick="selectService('premium')">
+                <div class="option-icon">🌟</div><h3>Premium Mow</h3>
                 <div class="price">$75<span>/visit</span></div>
-                <ul>
-                    <li>Everything in Basic</li>
-                    <li>Weed eating & detail work</li>
-                    <li>Light debris cleanup</li>
-                    <li>Larger yards & overgrown areas</li>
-                </ul>
+                <ul><li>Everything in Basic</li><li>Weed eating & detail</li><li>Debris cleanup</li><li>Larger yards</li></ul>
             </div>
-            
-            <div class="option-card" id="recurring-card" onclick="selectService('recurring', 'Recurring Service', '$40/visit')">
-                <div class="option-icon">🔄</div>
-                <h3>Recurring Service</h3>
+            <div class="option-card" id="card-recurring" onclick="selectService('recurring')">
+                <div class="option-icon">🔄</div><h3>Recurring</h3>
                 <div class="price">$40<span>/visit</span></div>
-                <ul>
-                    <li>Weekly or bi-weekly</li>
-                    <li>Priority scheduling</li>
-                    <li>Consistent maintenance</li>
-                    <li>Save $5 per visit</li>
-                </ul>
+                <ul><li>Weekly/bi-weekly</li><li>Priority scheduling</li><li>Consistent care</li><li>Save $5/visit</li></ul>
             </div>
-            
-            <div class="option-card" id="custom-card" onclick="selectService('custom', 'Custom Quote', 'Contact for price')">
-                <div class="option-icon">📋</div>
-                <h3>Custom Quote</h3>
+            <div class="option-card" id="card-custom" onclick="selectService('custom')">
+                <div class="option-icon">📋</div><h3>Custom Quote</h3>
                 <div class="price">$?<span>/custom</span></div>
-                <ul>
-                    <li>Large properties</li>
-                    <li>Special requests</li>
-                    <li>Native plant care add-on</li>
-                    <li>One-time cleanup projects</li>
-                </ul>
+                <ul><li>Large properties</li><li>Special requests</li><li>Native plant add-on</li><li>One-time cleanup</li></ul>
             </div>
         </div>
-        
         <div class="selected-service-display" id="selectedServiceDisplay">
-            📌 <strong>Selected Service:</strong> <span id="selectedServiceText">None yet — click a service above</span>
+            📌 <strong>Selected:</strong> <span id="selectedServiceText">None — click a service above</span>
         </div>
-        <p style="color: #6b7b5a; font-size: 0.9rem; margin-top: 0.5rem;">Your selection will be pre-filled on the Calendly booking form</p>
     </div>
 
-    <!-- 📅 SCHEDULING CALENDAR -->
+    <!-- CALENDAR -->
     <div class="scheduling-section" id="schedule">
-        <h2>📅 Pick Your Mowing Day & Time</h2>
-        <p class="scheduling-subtitle">Your selected service and price will appear on the booking form</p>
-        
+        <h2>📅 Pick Your Day & Time</h2>
+        <p class="scheduling-subtitle" id="calendarSubtitle">Select an available date below</p>
         <div class="calendly-container">
-            <iframe 
-                id="calendlyFrame"
-                src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1"
-                title="Schedule Lawn Mowing Service"
-                loading="lazy"
-                allowfullscreen
-            ></iframe>
+            <iframe id="calendlyFrame" src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1" title="Schedule" loading="lazy" allowfullscreen></iframe>
         </div>
-        
-        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #6b7b5a;">
-            📬 After booking, you'll get a confirmation email with <strong>reschedule/cancel</strong> options.<br>
-            🔔 I'll receive an instant notification and your booking syncs with my Google Calendar.
-        </p>
+        <p style="margin-top:1rem; font-size:0.9rem; color:#6b7b5a;">📬 Confirmation email includes reschedule/cancel options. 🔔 Syncs with my Google Calendar.</p>
     </div>
 
-    <!-- 📋 HOW IT WORKS -->
+    <!-- HOW IT WORKS -->
     <div class="how-it-works">
         <h2>📋 How It Works</h2>
         <div class="steps-container">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h4>Choose Service</h4>
-                <p>Click your mowing package above</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h4>Pick Date & Time</h4>
-                <p>Select an available slot on the calendar</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h4>Enter Details</h4>
-                <p>Add your address & instructions — service & price are pre-filled!</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h4>We Mow!</h4>
-                <p>I'll arrive on schedule and take care of your lawn</p>
-            </div>
+            <div class="step"><div class="step-number">1</div><h4>Choose</h4><p>Click a service above</p></div>
+            <div class="step"><div class="step-number">2</div><h4>Pick Time</h4><p>Select date on calendar</p></div>
+            <div class="step"><div class="step-number">3</div><h4>Add Details</h4><p>Address & instructions</p></div>
+            <div class="step"><div class="step-number">4</div><h4>We Mow!</h4><p>I arrive on schedule</p></div>
         </div>
     </div>
 
-    <!-- 📸 QUOTE SECTION -->
+    <!-- QUOTE FORM -->
     <div class="upload-quote-section" id="quote">
         <h2>📸 Get a Custom Quote</h2>
-        <p class="upload-subtitle">Need something different? Fill out the form and I'll send you a personalized estimate.</p>
-        
-        <div class="success-message" id="successMessage">
-            ✅ <strong>Thank you!</strong> Your request has been sent. I'll reply within 24 hours.
-        </div>
-
-        <form class="photo-form" id="quoteForm" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Quote Request - Wildflower Yard Works">
+        <div class="success-message" id="successMessage">✅ Thank you! I'll reply within 24 hours.</div>
+        <form class="photo-form" id="quoteForm" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST" style="display:flex; flex-direction:column; gap:1.5rem; align-items:center;">
+            <input type="hidden" name="_subject" value="New Quote - Wildflower Yard Works">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="false">
-            
             <div class="input-group">
-                <div class="input-field">
-                    <label>Your Name *</label>
-                    <input type="text" name="Name" placeholder="Jane Smith" required>
-                </div>
-                <div class="input-field">
-                    <label>Email Address *</label>
-                    <input type="email" name="Email" placeholder="jane@example.com" required>
-                </div>
+                <div class="input-field"><label>Name *</label><input type="text" name="Name" required></div>
+                <div class="input-field"><label>Email *</label><input type="email" name="Email" required></div>
             </div>
             <div class="input-group">
-                <div class="input-field">
-                    <label>Phone</label>
-                    <input type="tel" name="Phone" placeholder="(281) 555-0192">
-                </div>
-                <div class="input-field">
-                    <label>Service City *</label>
-                    <select name="City" required>
-                        <option value="">Select your city...</option>
-                        <option value="Houston">Houston</option>
-                        <option value="Conroe">Conroe</option>
-                        <option value="Montgomery">Montgomery</option>
-                        <option value="Other">Other nearby</option>
-                    </select>
-                </div>
+                <div class="input-field"><label>Phone</label><input type="tel" name="Phone"></div>
+                <div class="input-field"><label>City *</label><select name="City" required><option value="">Select...</option><option>Houston</option><option>Conroe</option><option>Montgomery</option></select></div>
             </div>
-            <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
-                <label>Service Needed *</label>
-                <select name="Service" required>
-                    <option value="">Select a service...</option>
-                    <option value="Lawn Mowing">Lawn Mowing</option>
-                    <option value="Native Plant Bed">Native Plant Bed Installation</option>
-                    <option value="Yard Cleanup">Overgrown Yard Cleanup</option>
-                    <option value="Pollinator Garden">Pollinator Garden Design</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="input-field" style="width: 100%; max-width: 500px; margin: 0 auto;">
-                <label>Brief description</label>
-                <textarea name="Message" rows="3" placeholder="Tell me about your yard..."></textarea>
-            </div>
-
+            <div class="input-field" style="max-width:500px; width:100%;"><label>Service *</label><select name="Service" required><option value="">Select...</option><option>Basic Mow - $45</option><option>Premium Mow - $75</option><option>Recurring - $40</option><option>Native Plants</option><option>Yard Cleanup</option><option>Other</option></select></div>
+            <div class="input-field" style="max-width:500px; width:100%;"><label>Description</label><textarea name="Message" rows="3"></textarea></div>
             <button type="submit" class="submit-btn" id="submitBtn">✨ Send Request</button>
         </form>
-
-        <div class="email-fallback">
-            <p>📸 <strong>Have lawn photos?</strong> Email them to:</p>
-            <a href="mailto:3Wildflowerlawns@gmail.com?subject=Lawn Photos for Quote&body=Hi! Here are photos of my lawn. Name: [Your Name]%0D%0APhone: [Your Phone]%0D%0AService: [What you need]">
-                📧 3Wildflowerlawns@gmail.com
-            </a>
-        </div>
+        <div class="email-fallback"><p>📸 <strong>Have photos?</strong> Email: <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></p></div>
     </div>
 
-    <!-- Mission -->
-    <div class="mission-section" id="mission">
-        <div class="mission-text">
-            <h2><span>🌱</span> Our Mission</h2>
-            <div class="mission-statement">
-                "To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time. 
-                We believe every lawn can bloom with purpose: conserving water, supporting pollinators, 
-                and creating welcoming landscapes for families across Houston, Conroe, and Montgomery."
-            </div>
-        </div>
-        <div class="mission-image">🌻🐝</div>
-    </div>
+    <!-- MISSION -->
+    <div class="mission-section"><div class="mission-text"><h2>🌱 Our Mission</h2><p class="mission-statement" style="font-style:italic; background:#fafaf5; padding:1.5rem; border-radius:24px; border-left:5px solid #b89b5b;">"To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time."</p></div><div style="font-size:6rem;">🌻🐝</div></div>
 
-    <!-- Service Area -->
-    <div class="service-area">
-        <h2>🌎 Where We Work</h2>
-        <p style="font-size:1.1rem; margin-bottom:0.3rem; color:#2b3d1f;">Greater Houston & Montgomery County</p>
-        <div class="cities-container">
-            <div class="city-card"><span>🏙️</span> Houston</div>
-            <div class="city-card"><span>🌳</span> Conroe</div>
-            <div class="city-card"><span>🏡</span> Montgomery</div>
-        </div>
-        <div class="region-description">🌾 From urban Houston to piney woods of Conroe — native plant expertise.</div>
-    </div>
+    <!-- SERVICE AREA -->
+    <div class="service-area"><h2>🌎 Where We Work</h2><div class="cities-container"><div class="city-card">🏙️ Houston</div><div class="city-card">🌳 Conroe</div><div class="city-card">🏡 Montgomery</div></div></div>
 
-    <!-- Contact -->
-    <div class="contact-highlight" id="contact">
-        <h2 style="font-family: 'Libre Baskerville', serif; font-size:1.8rem;">Let's Talk</h2>
-        <p style="opacity:0.9;">Prefer to call or email directly?</p>
-        <div class="contact-details">
-            <div class="contact-item"><span>📞</span> <a href="tel:+16015978142">(601) 597-8142</a></div>
-            <div class="contact-item"><span>✉️</span> <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></div>
-        </div>
-    </div>
+    <!-- CONTACT -->
+    <div class="contact-highlight" id="contact"><h2>Let's Talk</h2><div class="contact-details"><div class="contact-item">📞 <a href="tel:+16015978142">(601) 597-8142</a></div><div class="contact-item">✉️ <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></div></div></div>
 
-    <footer>
-        <p>© 2026 <span>Wildflower Yard Works</span> — Houston • Conroe • Montgomery, Texas</p>
-        <p style="margin-top:0.5rem;">🌼 Rooted in nature. Growing community.</p>
-    </footer>
+    <footer><p>© 2026 Wildflower Yard Works — Houston • Conroe • Montgomery, Texas</p></footer>
 
+    <!-- ✅ COMPLETE WORKING SCRIPT -->
     <script>
-        // Current selected service
-        let currentService = {
-            type: '',
-            name: '',
-            price: ''
+        const serviceData = {
+            basic: { name: 'Basic Mow — $45/visit', price: '$45' },
+            premium: { name: 'Premium Mow — $75/visit', price: '$75' },
+            recurring: { name: 'Recurring Service — $40/visit', price: '$40' },
+            custom: { name: 'Custom Quote — Contact for price', price: 'Varies' }
         };
 
-        // Calendly base URL
-        const calendlyBaseURL = 'https://calendly.com/3wildflowerlawns/lawn-mowing-service';
-        
-        function selectService(serviceType, serviceName, servicePrice) {
-            // Remove selected class from all cards
-            document.querySelectorAll('.option-card').forEach(card => {
-                card.classList.remove('selected');
-            });
+        function selectService(type) {
+            // Remove selected from all cards
+            document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
             
-            // Add selected class to clicked card
-            document.getElementById(serviceType + '-card').classList.add('selected');
-            
-            // Update current service
-            currentService = {
-                type: serviceType,
-                name: serviceName,
-                price: servicePrice
-            };
+            // Add selected to clicked card
+            const card = document.getElementById('card-' + type);
+            if (card) card.classList.add('selected');
             
             // Update display
-            document.getElementById('selectedServiceText').textContent = serviceName + ' — ' + servicePrice;
+            const info = serviceData[type];
+            document.getElementById('selectedServiceText').textContent = info.name;
+            document.getElementById('calendarSubtitle').textContent = '📌 ' + info.name + ' — Now pick your date below';
             
-            // Update Calendly iframe with pre-filled data
-            updateCalendlyFrame();
+            // Save to localStorage
+            localStorage.setItem('selectedService', type);
             
             // Scroll to calendar
             document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
         }
-        
-        function updateCalendlyFrame() {
-            const calendlyFrame = document.getElementById('calendlyFrame');
-            
-            if (currentService.type) {
-                // Build URL with pre-filled invitee questions
-                // Calendly uses 'name' and 'email' as standard params
-                // For custom questions, use 'a1', 'a2', etc. based on your question order
-                const params = new URLSearchParams();
-                
-                // Add service
+
+        // Restore selection on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('selectedService');
+            if (saved && serviceData[saved]) {
+                selectService(saved);
+            }
+        });
+
+        // Form handler
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            const formData = new FormData(this);
+            try {
+                await fetch(this.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                document.getElementById('successMessage').classList.add('show');
+                this.reset();
+            } catch(e) {}
+            btn.disabled = false;
+            btn.textContent = '✨ Send Request';
+        });
+    </script>
+</body>
+</html>
