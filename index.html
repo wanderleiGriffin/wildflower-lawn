@@ -13,97 +13,118 @@
         body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.5; color: #2b3b2c; background-color: #fcfaf5; -webkit-font-smoothing: antialiased; }
 
         header { background: rgba(252,250,245,0.92); backdrop-filter: blur(14px); color: #1e3b1a; padding: 1rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(120,110,70,0.15); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { display: flex; align-items: center; gap: 0.5rem; font-family: 'Libre Baskerville', serif; font-size: 1.5rem; font-weight: 600; color: #2a4822; text-decoration: none; }
         .logo-icon { font-size: 2rem; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; align-items: center; }
-        .nav-links a { color: #2b3b2c; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; align-items: center; }
+        .nav-links a { color: #2b3b2c; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; }
         .nav-links a:hover { border-bottom-color: #c7a44d; color: #1e3b1a; }
-        .contact-badge { background: #f0ede0; padding: 0.5rem 1.2rem; border-radius: 40px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; border: 1px solid #d9d2b8; color: #2a4822; }
+        .contact-badge { background: #f0ede0; padding: 0.5rem 1rem; border-radius: 40px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; border: 1px solid #d9d2b8; color: #2a4822; white-space: nowrap; }
         .contact-badge a { color: #2a4822; text-decoration: none; }
 
-        .hero { background: linear-gradient(120deg, rgba(35,50,25,0.7), rgba(70,90,45,0.55)); padding: 4rem 2rem; text-align: center; color: #fff; min-height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 2.5rem 2.5rem; margin-bottom: 2rem; }
-        .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; margin-bottom: 0.8rem; }
-        .hero .tagline { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
-        .service-area-highlight { background: rgba(250,245,235,0.2); backdrop-filter: blur(10px); padding: 0.6rem 2rem; border-radius: 50px; font-size: 1.2rem; margin-bottom: 2rem; border: 1px solid rgba(255,255,240,0.5); }
-        .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-        .cta-button { background: #fceeba; color: #1e3b1a; font-weight: 700; font-size: 1.1rem; padding: 0.9rem 2.2rem; border-radius: 60px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 10px 22px rgba(0,0,0,0.18); transition: all 0.25s; cursor: pointer; }
-        .cta-button:hover { background: #fef3cf; transform: translateY(-4px); }
+        .hero { background: linear-gradient(120deg, rgba(35,50,25,0.7), rgba(70,90,45,0.55)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700"><rect width="1200" height="700" fill="%23597a3a"/></svg>'); background-size: cover; padding: 3rem 1.5rem; text-align: center; color: #fff; min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 2rem 2rem; margin-bottom: 2rem; }
+        .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600; margin-bottom: 0.5rem; }
+        .hero .tagline { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 300; margin-bottom: 1.2rem; font-style: italic; }
+        .service-area-highlight { background: rgba(250,245,235,0.2); backdrop-filter: blur(10px); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,240,0.5); }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+        .cta-button { background: #fceeba; color: #1e3b1a; font-weight: 700; font-size: 1rem; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 8px 18px rgba(0,0,0,0.15); transition: all 0.2s; cursor: pointer; }
+        .cta-button:hover { background: #fef3cf; transform: translateY(-3px); }
         .cta-button.secondary { background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
 
-        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+        .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
 
-        .mowing-options { padding: 2rem 1rem 3rem; text-align: center; }
-        .mowing-options h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 4vw, 2rem); color: #1e3b1a; margin-bottom: 0.5rem; }
-        .subtitle { color: #4a5e3f; margin-bottom: 2rem; font-size: 1.05rem; }
-        .options-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
-        .option-card { background: white; border-radius: 20px; padding: 1.8rem 1.2rem; border: 2px solid #e8e5d5; text-align: center; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; min-height: 320px; }
-        .option-card:hover { border-color: #b89b5b; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-5px); }
-        .option-card.selected { border-color: #2a4822; background: #f4f9ee; box-shadow: 0 10px 25px rgba(0,0,0,0.12); transform: translateY(-5px); }
-        .option-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-        .option-card h3 { color: #2a4822; font-size: 1.2rem; }
-        .option-card .price { font-size: 1.8rem; font-weight: 700; color: #1e3b1a; }
-        .option-card .price span { font-size: 0.9rem; font-weight: 400; color: #6b7b5a; }
-        .option-card ul { list-style: none; text-align: left; margin: 0.8rem 0; color: #5a6b4a; font-size: 0.85rem; width: 100%; }
-        .option-card ul li { padding: 0.25rem 0; }
+        /* Services Section */
+        .mowing-options { padding: 2rem 0 2rem; text-align: center; }
+        .mowing-options h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 3vw, 1.8rem); color: #1e3b1a; margin-bottom: 0.3rem; }
+        .subtitle { color: #4a5e3f; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        
+        .options-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .option-card { background: white; border-radius: 16px; padding: 1.5rem 1rem; border: 2px solid #e8e5d5; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .option-card:hover { border-color: #b89b5b; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transform: translateY(-3px); }
+        .option-card.selected { border-color: #2a4822; background: #f4f9ee; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .option-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .option-card h3 { color: #2a4822; font-size: 1rem; margin-bottom: 0.2rem; }
+        .option-card .price { font-size: 1.4rem; font-weight: 700; color: #1e3b1a; }
+        .option-card .price span { font-size: 0.75rem; font-weight: 400; color: #6b7b5a; }
+        .option-card ul { list-style: none; text-align: left; margin: 0.5rem 0 0; color: #5a6b4a; font-size: 0.78rem; }
+        .option-card ul li { padding: 0.15rem 0; }
         .option-card ul li::before { content: "✓ "; color: #2a4822; font-weight: 700; }
-        .selected-service-display { background: #f4f9ee; padding: 1rem 2rem; border-radius: 20px; display: inline-block; font-weight: 600; color: #2a4822; border: 2px solid #2a4822; font-size: 1.05rem; }
 
-        /* Address Form */
-        .address-section { padding: 2rem 1rem; text-align: center; margin: 2rem auto 3rem; }
-        .address-section h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 4vw, 2rem); color: #1e3b1a; margin-bottom: 0.5rem; }
-        .address-form { max-width: 600px; margin: 1.5rem auto; display: flex; flex-direction: column; gap: 1rem; }
-        .address-form input, .address-form textarea { padding: 0.8rem 1rem; border: 2px solid #ddd6c0; border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; width: 100%; }
+        .selected-service-display { background: #f4f9ee; padding: 0.8rem 1.5rem; border-radius: 16px; display: inline-block; font-weight: 600; color: #2a4822; border: 2px solid #2a4822; font-size: 0.95rem; }
+
+        /* Address Section - ALWAYS VISIBLE once service is selected */
+        .address-section { padding: 0 0 2rem; text-align: center; }
+        .address-section h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #1e3b1a; margin-bottom: 0.3rem; }
+        .address-form { max-width: 550px; margin: 1rem auto; display: flex; flex-direction: column; gap: 0.8rem; background: #fff; padding: 1.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); border: 1px solid #eee8d5; }
+        .address-form input, .address-form textarea { padding: 0.7rem 0.9rem; border: 2px solid #ddd6c0; border-radius: 14px; font-family: 'Inter', sans-serif; font-size: 0.9rem; width: 100%; transition: 0.2s; }
         .address-form input:focus, .address-form textarea:focus { outline: none; border-color: #b89b5b; box-shadow: 0 0 0 3px rgba(184,155,91,0.15); }
-        .address-form button { background: #2a4822; color: #fff; border: none; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
+        .address-form .row { display: flex; gap: 0.8rem; }
+        .address-form .row input { flex: 1; }
+        .address-form button { background: #2a4822; color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; }
         .address-form button:hover { background: #2f5427; }
-        .address-saved { display: none; background: #e8f0e3; padding: 0.8rem 1.5rem; border-radius: 16px; font-weight: 600; color: #2a4822; border: 1px solid #b8d4a8; margin-bottom: 1rem; }
+        .address-saved { background: #e8f0e3; padding: 0.7rem 1.2rem; border-radius: 14px; font-weight: 600; color: #2a4822; border: 1px solid #b8d4a8; margin-bottom: 0.8rem; font-size: 0.9rem; }
 
-        .scheduling-section { padding: 2.5rem 1rem; background: #fff; border-radius: 2.5rem; box-shadow: 0 20px 35px rgba(0,0,0,0.04); border: 1px solid #eee8d5; text-align: center; margin: 2rem auto 3rem; }
-        .scheduling-section h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); color: #1e3b1a; }
-        .calendly-container { width: 100%; min-height: 650px; border-radius: 20px; overflow: hidden; border: 2px solid #e8e5d5; }
-        .calendly-container iframe { width: 100%; height: 650px; border: none; }
+        /* Calendar Section */
+        .scheduling-section { padding: 2rem 0; background: #fff; border-radius: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.03); border: 1px solid #eee8d5; text-align: center; margin: 2rem auto 2rem; }
+        .scheduling-section h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #1e3b1a; }
+        .scheduling-subtitle { color: #4a5e3f; font-size: 0.9rem; margin-bottom: 1rem; }
+        .calendly-container { width: 100%; min-height: 600px; border-radius: 16px; overflow: hidden; border: 1px solid #e8e5d5; }
+        .calendly-container iframe { width: 100%; height: 600px; border: none; }
 
-        .how-it-works { padding: 2rem 1rem; text-align: center; margin: 2rem auto 3rem; }
-        .steps-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-        .step { flex: 1 1 200px; max-width: 230px; }
-        .step-number { background: #2a4822; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin: 0 auto 0.8rem; }
-        .step h4 { color: #2a4822; }
+        /* How It Works */
+        .how-it-works { padding: 2rem 0; text-align: center; }
+        .how-it-works h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #1e3b1a; margin-bottom: 1.5rem; }
+        .steps-container { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+        .step { flex: 1 1 180px; max-width: 200px; }
+        .step-number { background: #2a4822; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 0.6rem; }
+        .step h4 { color: #2a4822; font-size: 0.95rem; }
+        .step p { color: #5a6b4a; font-size: 0.8rem; }
 
-        .upload-quote-section { padding: 2.5rem 1.5rem; background: #fff; border-radius: 2.5rem; box-shadow: 0 20px 35px rgba(0,0,0,0.04); border: 1px solid #eee8d5; text-align: center; margin: 2rem auto 3rem; }
-        .upload-quote-section h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.5rem, 4vw, 2rem); color: #1e3b1a; }
-        .photo-form { display: flex; flex-direction: column; gap: 1.2rem; align-items: center; max-width: 600px; margin: 0 auto; }
-        .input-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; width: 100%; }
-        .input-field { flex: 1 1 200px; text-align: left; }
-        .input-field label { font-weight: 600; color: #2d4624; font-size: 0.85rem; display: block; margin-bottom: 0.25rem; }
-        .input-field input, .input-field textarea, .input-field select { padding: 0.7rem 0.9rem; border: 1px solid #ddd6c0; border-radius: 16px; font-family: 'Inter', sans-serif; background: #fdfdf9; font-size: 0.9rem; width: 100%; }
-        .submit-btn { background: #1e3b1a; color: #fff; border: none; padding: 0.9rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
+        /* Quote Section */
+        .upload-quote-section { padding: 2rem 0; background: #fff; border-radius: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.03); border: 1px solid #eee8d5; text-align: center; margin: 2rem auto; }
+        .upload-quote-section h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #1e3b1a; }
+        .photo-form { display: flex; flex-direction: column; gap: 1rem; align-items: center; max-width: 500px; margin: 1rem auto 0; }
+        .input-group { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; width: 100%; }
+        .input-field { flex: 1 1 180px; text-align: left; }
+        .input-field label { font-weight: 600; color: #2d4624; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; }
+        .input-field input, .input-field textarea, .input-field select { padding: 0.6rem 0.8rem; border: 1px solid #ddd6c0; border-radius: 14px; font-family: 'Inter', sans-serif; background: #fdfdf9; font-size: 0.85rem; width: 100%; }
+        .submit-btn { background: #1e3b1a; color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; }
         .submit-btn:hover { background: #2f5427; }
-        .success-message { display: none; background: #e8f0e3; padding: 1.2rem; border-radius: 16px; margin-bottom: 1.5rem; font-weight: 500; border: 1px solid #b8d4a8; }
+        .success-message { display: none; background: #e8f0e3; padding: 1rem; border-radius: 14px; margin-bottom: 1rem; font-weight: 500; border: 1px solid #b8d4a8; }
         .success-message.show { display: block; }
-        .email-fallback { margin-top: 1.5rem; padding: 1.2rem; background: #fef9e7; border-radius: 16px; border: 1px solid #f0e4b8; }
+        .email-fallback { margin-top: 1rem; padding: 1rem; background: #fef9e7; border-radius: 14px; border: 1px solid #f0e4b8; font-size: 0.9rem; }
         .email-fallback a { color: #2a4822; font-weight: 700; }
 
-        .mission-section { padding: 2rem 1.5rem; background: #fff; border-radius: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; border: 1px solid #f0ecdb; margin: 2rem auto 3rem; }
-        .mission-text { flex: 1 1 400px; }
-        .mission-text h2 { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: #2a4822; }
-        .mission-statement { font-style: italic; background: #fafaf5; padding: 1.2rem 1.5rem; border-radius: 20px; border-left: 5px solid #b89b5b; font-size: 1rem; line-height: 1.7; }
+        .mission-section { padding: 1.5rem 0; background: #fff; border-radius: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; border: 1px solid #f0ecdb; margin: 2rem auto; }
+        .mission-text { flex: 1 1 350px; }
+        .mission-text h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #2a4822; }
+        .mission-statement { font-style: italic; background: #fafaf5; padding: 1rem 1.2rem; border-radius: 16px; border-left: 4px solid #b89b5b; font-size: 0.9rem; line-height: 1.6; }
 
-        .service-area { background: #f6f4ea; padding: 2.5rem 1rem; text-align: center; border-radius: 2.5rem 2.5rem 0 0; }
-        .cities-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; }
-        .city-card { background: #fff; border-radius: 1.5rem; padding: 1.2rem 1.8rem; font-weight: 600; font-size: 1.1rem; color: #2a4822; display: flex; align-items: center; gap: 0.5rem; }
+        .service-area { background: #f6f4ea; padding: 2rem 0; text-align: center; border-radius: 2rem 2rem 0 0; }
+        .cities-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; margin: 1.2rem 0; }
+        .city-card { background: #fff; border-radius: 1.2rem; padding: 1rem 1.5rem; font-weight: 600; font-size: 1rem; color: #2a4822; display: flex; align-items: center; gap: 0.4rem; }
 
-        .contact-highlight { background: #2a4822; color: #fff; padding: 2.5rem 1.5rem; text-align: center; border-radius: 0 0 2.5rem 2.5rem; margin-bottom: 1rem; }
-        .contact-highlight h2 { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; }
-        .contact-details { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; font-size: 1.1rem; margin-top: 1.2rem; }
-        .contact-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,240,0.08); padding: 0.5rem 1.5rem; border-radius: 40px; }
+        .contact-highlight { background: #2a4822; color: #fff; padding: 2rem 0; text-align: center; border-radius: 0 0 2rem 2rem; margin-bottom: 1rem; }
+        .contact-highlight h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; }
+        .contact-details { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; font-size: 1rem; margin-top: 1rem; }
+        .contact-item { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,240,0.08); padding: 0.5rem 1.2rem; border-radius: 40px; }
         .contact-item a { color: #f7e5a1; text-decoration: none; font-weight: 600; }
 
-        footer { background: #f2efe2; color: #2b3b2c; text-align: center; padding: 1.5rem; border-radius: 2rem 2rem 0 0; }
+        footer { background: #f2efe2; color: #2b3b2c; text-align: center; padding: 1.2rem; border-radius: 1.5rem 1.5rem 0 0; font-size: 0.85rem; }
 
-        @media (max-width: 1024px) { .options-grid { grid-template-columns: repeat(2, 1fr); } .option-card { min-height: auto; } }
-        @media (max-width: 768px) { .nav-container { flex-direction: column; } .options-grid { grid-template-columns: 1fr 1fr; } .calendly-container iframe { height: 600px; } .mission-section { flex-direction: column; } }
-        @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .options-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; text-align: center; }
+            .nav-links { gap: 1rem; }
+            .hero { min-height: 30vh; padding: 2rem 1rem; }
+        }
+        @media (max-width: 500px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .address-form .row { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
@@ -114,6 +135,7 @@
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#mowing">Services</a></li>
+                <li><a href="#address">Address</a></li>
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#quote">Quote</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -132,10 +154,10 @@
         </div>
     </section>
 
-    <!-- SERVICE OPTIONS -->
+    <!-- SERVICES -->
     <div class="mowing-options container" id="mowing">
-        <h2>🌿 Choose Your Lawn Mowing Service</h2>
-        <p class="subtitle">Click a service, enter your address, then pick a date on the calendar</p>
+        <h2>Step 1: Choose Your Service</h2>
+        <p class="subtitle">Click a service below</p>
         <div class="options-grid">
             <div class="option-card" id="card-basic" onclick="selectService('basic')">
                 <div class="option-icon">🏡</div><h3>Basic Mow</h3>
@@ -163,38 +185,38 @@
         </div>
     </div>
 
-    <!-- 📍 ADDRESS FORM (Before Calendar) -->
-    <div class="address-section container" id="addressSection" style="display:none;">
-        <h2>📍 Where Should I Go?</h2>
-        <p style="color:#4a5e3f; margin-bottom:0.5rem;">Enter your address so I know where to mow</p>
+    <!-- ADDRESS SECTION (shows after service selection) -->
+    <div class="address-section container" id="addressSection">
+        <h2>📍 Step 2: Enter Your Address</h2>
+        <p style="color:#4a5e3f; margin-bottom:0.8rem; font-size:0.9rem;">Tell me where to go for your lawn mowing</p>
         
-        <div class="address-saved" id="addressSavedMessage">
+        <div class="address-saved" id="addressSavedMessage" style="display:none;">
             ✅ Address saved! Now pick your date below.
         </div>
         
         <form class="address-form" id="addressForm" onsubmit="saveAddress(event)">
             <input type="text" id="streetAddress" placeholder="Street Address *" required>
-            <input type="text" id="city" placeholder="City *" required>
-            <div style="display:flex; gap:1rem;">
-                <input type="text" id="state" placeholder="State *" value="TX" required style="flex:1;">
-                <input type="text" id="zipCode" placeholder="Zip Code *" required style="flex:1;">
+            <div class="row">
+                <input type="text" id="city" placeholder="City *" required>
+                <input type="text" id="state" placeholder="State *" value="TX" required>
+                <input type="text" id="zipCode" placeholder="Zip Code *" required>
             </div>
-            <textarea id="accessNotes" rows="2" placeholder="Gate code, parking instructions, or special notes (optional)"></textarea>
-            <button type="submit">💾 Save Address & Continue</button>
+            <textarea id="accessNotes" rows="2" placeholder="Gate code, parking info, or special notes (optional)"></textarea>
+            <button type="submit">💾 Save Address & Continue to Calendar</button>
         </form>
     </div>
 
     <!-- CALENDAR -->
     <div class="scheduling-section container" id="schedule">
-        <h2>📅 Pick Your Day & Time</h2>
-        <p class="scheduling-subtitle" id="calendarSubtitle">Select an available date below</p>
-        <p id="addressReminder" style="color:#8a9a7a; font-size:0.9rem; margin-bottom:1rem; display:none;">
+        <h2>📅 Step 3: Pick Your Day & Time</h2>
+        <p class="scheduling-subtitle" id="calendarSubtitle">Choose an available date and time</p>
+        <p id="addressReminder" style="color:#2a4822; font-size:0.9rem; margin-bottom:0.8rem; display:none; background:#f4f9ee; padding:0.5rem 1rem; border-radius:12px; display:inline-block;">
             📍 Mowing at: <strong><span id="displayAddress">—</span></strong>
         </p>
         <div class="calendly-container">
-            <iframe id="calendlyFrame" src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1" title="Schedule" loading="lazy" allowfullscreen></iframe>
+            <iframe id="calendlyFrame" src="https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1" title="Schedule Lawn Mowing" loading="lazy" allowfullscreen></iframe>
         </div>
-        <p style="margin-top:1rem; font-size:0.9rem; color:#6b7b5a;">
+        <p style="margin-top:0.8rem; font-size:0.85rem; color:#6b7b5a;">
             📬 Confirmation email includes reschedule/cancel options<br>
             🔔 Syncs with my Google Calendar instantly
         </p>
@@ -204,17 +226,17 @@
     <div class="how-it-works container">
         <h2>📋 How It Works</h2>
         <div class="steps-container">
-            <div class="step"><div class="step-number">1</div><h4>Choose Service</h4><p>Click your mowing package</p></div>
+            <div class="step"><div class="step-number">1</div><h4>Choose Service</h4><p>Click your package</p></div>
             <div class="step"><div class="step-number">2</div><h4>Enter Address</h4><p>Tell me where to go</p></div>
-            <div class="step"><div class="step-number">3</div><h4>Pick Date & Time</h4><p>Select on the calendar</p></div>
+            <div class="step"><div class="step-number">3</div><h4>Pick Date & Time</h4><p>Select on calendar</p></div>
             <div class="step"><div class="step-number">4</div><h4>We Mow!</h4><p>I arrive on schedule</p></div>
         </div>
     </div>
 
-    <!-- QUOTE FORM -->
+    <!-- QUOTE -->
     <div class="upload-quote-section container" id="quote">
         <h2>📸 Get a Custom Quote</h2>
-        <p class="upload-subtitle">Need something different? I'll send you a personalized estimate</p>
+        <p style="color:#4a5e3f; margin-bottom:1rem; font-size:0.9rem;">Need something different? I'll send you a personalized estimate</p>
         <div class="success-message" id="successMessage">✅ Thank you! I'll reply within 24 hours.</div>
         <form class="photo-form" id="quoteForm" action="https://formsubmit.co/3wildflowerlawns@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Quote - Wildflower Yard Works">
@@ -228,9 +250,9 @@
                 <div class="input-field"><label>Phone</label><input type="tel" name="Phone"></div>
                 <div class="input-field"><label>City *</label><select name="City" required><option value="">Select...</option><option>Houston</option><option>Conroe</option><option>Montgomery</option></select></div>
             </div>
-            <div class="input-field" style="width:100%;"><label>Service *</label><select name="Service" required><option value="">Select...</option><option>Basic Mow - $45</option><option>Premium Mow - $75</option><option>Recurring - $40</option><option>Other</option></select></div>
-            <div class="input-field" style="width:100%;"><label>Address *</label><input type="text" name="Address" required placeholder="Your street address"></div>
-            <div class="input-field" style="width:100%;"><label>Description</label><textarea name="Message" rows="3"></textarea></div>
+            <div style="width:100%; text-align:left;"><label style="font-weight:600;color:#2d4624;font-size:0.8rem;">Service *</label><select name="Service" required style="width:100%;padding:0.6rem;border:1px solid #ddd6c0;border-radius:14px;"><option value="">Select...</option><option>Basic Mow - $45</option><option>Premium Mow - $75</option><option>Recurring - $40</option><option>Other</option></select></div>
+            <div style="width:100%; text-align:left;"><label style="font-weight:600;color:#2d4624;font-size:0.8rem;">Address *</label><input type="text" name="Address" required placeholder="Your street address" style="width:100%;padding:0.6rem;border:1px solid #ddd6c0;border-radius:14px;"></div>
+            <div style="width:100%; text-align:left;"><label style="font-weight:600;color:#2d4624;font-size:0.8rem;">Description</label><textarea name="Message" rows="3" style="width:100%;padding:0.6rem;border:1px solid #ddd6c0;border-radius:14px;"></textarea></div>
             <button type="submit" class="submit-btn" id="submitBtn">✨ Send Request</button>
         </form>
         <div class="email-fallback"><p>📸 <strong>Have photos?</strong> Email: <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></p></div>
@@ -239,7 +261,7 @@
     <!-- MISSION -->
     <div class="mission-section container">
         <div class="mission-text"><h2>🌱 Our Mission</h2><p class="mission-statement">"To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time."</p></div>
-        <div style="font-size:5rem; text-align:center;">🌻🐝</div>
+        <div style="font-size:4rem; text-align:center;">🌻🐝</div>
     </div>
 
     <!-- SERVICE AREA -->
@@ -251,6 +273,7 @@
     <footer><p>© 2026 <strong>Wildflower Yard Works</strong> — Houston • Conroe • Montgomery, Texas</p></footer>
 
     <script>
+        // Service data
         const serviceData = {
             basic: { name: 'Basic Mow — $45/visit', price: '$45' },
             premium: { name: 'Premium Mow — $75/visit', price: '$75' },
@@ -261,80 +284,104 @@
         let selectedServiceType = null;
         let customerAddress = null;
 
+        // Service selection
         function selectService(type) {
             selectedServiceType = type;
             
-            document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
-            const card = document.getElementById('card-' + type);
+            // Update cards
+            document.querySelectorAll('.option-card').forEach(function(c) {
+                c.classList.remove('selected');
+            });
+            var card = document.getElementById('card-' + type);
             if (card) card.classList.add('selected');
             
-            const info = serviceData[type];
+            // Update display
+            var info = serviceData[type];
             document.getElementById('selectedServiceText').textContent = info.name;
-            document.getElementById('calendarSubtitle').textContent = '📌 ' + info.name + ' — Now enter your address below';
+            document.getElementById('calendarSubtitle').textContent = '📌 ' + info.name + ' — Enter address then pick date';
             
-            // Show address form
-            document.getElementById('addressSection').style.display = 'block';
+            // Show and scroll to address section
             document.getElementById('addressSection').scrollIntoView({ behavior: 'smooth' });
             
+            // Save to localStorage
             localStorage.setItem('selectedService', type);
         }
 
+        // Save address
         function saveAddress(event) {
             event.preventDefault();
             
-            const street = document.getElementById('streetAddress').value;
-            const city = document.getElementById('city').value;
-            const state = document.getElementById('state').value;
-            const zip = document.getElementById('zipCode').value;
-            const notes = document.getElementById('accessNotes').value;
+            var street = document.getElementById('streetAddress').value.trim();
+            var city = document.getElementById('city').value.trim();
+            var state = document.getElementById('state').value.trim();
+            var zip = document.getElementById('zipCode').value.trim();
+            var notes = document.getElementById('accessNotes').value.trim();
+            
+            if (!street || !city || !state || !zip) {
+                alert('Please fill in all required address fields.');
+                return;
+            }
             
             customerAddress = {
-                street, city, state, zip, notes,
+                street: street,
+                city: city,
+                state: state,
+                zip: zip,
+                notes: notes,
                 full: street + ', ' + city + ', ' + state + ' ' + zip
             };
             
-            // Show saved message
+            // Show saved confirmation
             document.getElementById('addressSavedMessage').style.display = 'block';
-            document.getElementById('addressReminder').style.display = 'block';
+            document.getElementById('addressReminder').style.display = 'inline-block';
             document.getElementById('displayAddress').textContent = customerAddress.full;
             
-            // Update Calendly with pre-filled data
-            updateCalendlyWithAddress();
+            // Save to localStorage
+            localStorage.setItem('customerAddress', JSON.stringify(customerAddress));
             
             // Scroll to calendar
-            setTimeout(() => {
+            setTimeout(function() {
                 document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
-            }, 500);
-            
-            localStorage.setItem('customerAddress', JSON.stringify(customerAddress));
+            }, 400);
         }
 
-        function updateCalendlyWithAddress() {
-            const iframe = document.getElementById('calendlyFrame');
-            let url = 'https://calendly.com/3wildflowerlawns/lawn-mowing-service?embed_domain=yourwebsite.com&embed_type=Inline&hide_gdpr_banner=1';
-            
-            if (customerAddress && selectedServiceType) {
-                const info = serviceData[selectedServiceType];
-                // Add pre-filled data as URL parameters
-                url += '&name=' + encodeURIComponent('');
-                url += '&a1=' + encodeURIComponent(info.name); // Service type
-                url += '&a2=' + encodeURIComponent(customerAddress.full); // Address
-                if (customerAddress.notes) {
-                    url += '&a3=' + encodeURIComponent(customerAddress.notes); // Notes
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('submitBtn');
+            var msg = document.getElementById('successMessage');
+            btn.disabled = true;
+            btn.textContent = '⏳ Sending...';
+            msg.classList.remove('show');
+            try {
+                var response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    msg.classList.add('show');
+                    this.reset();
+                    msg.scrollIntoView({ behavior: 'smooth' });
                 }
+            } catch(e) {
+                msg.classList.add('show');
+                this.reset();
             }
-            
-            iframe.src = url;
-        }
+            btn.disabled = false;
+            btn.textContent = '✨ Send Request';
+        });
 
-        // Restore on page load
+        // Restore saved data on page load
         window.addEventListener('DOMContentLoaded', function() {
-            const savedService = localStorage.getItem('selectedService');
+            // Restore service selection
+            var savedService = localStorage.getItem('selectedService');
             if (savedService && serviceData[savedService]) {
                 selectService(savedService);
             }
             
-            const savedAddress = localStorage.getItem('customerAddress');
+            // Restore address
+            var savedAddress = localStorage.getItem('customerAddress');
             if (savedAddress) {
                 try {
                     customerAddress = JSON.parse(savedAddress);
@@ -344,27 +391,15 @@
                     document.getElementById('zipCode').value = customerAddress.zip || '';
                     document.getElementById('accessNotes').value = customerAddress.notes || '';
                     document.getElementById('addressSavedMessage').style.display = 'block';
-                    document.getElementById('addressReminder').style.display = 'block';
+                    document.getElementById('addressReminder').style.display = 'inline-block';
                     document.getElementById('displayAddress').textContent = customerAddress.full;
-                    updateCalendlyWithAddress();
                 } catch(e) {}
             }
-        });
-
-        // Form submission
-        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const msg = document.getElementById('successMessage');
-            btn.disabled = true;
-            btn.textContent = '⏳ Sending...';
-            msg.classList.remove('show');
-            try {
-                const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-                if (response.ok) { msg.classList.add('show'); this.reset(); msg.scrollIntoView({ behavior: 'smooth' }); }
-            } catch(e) {}
-            btn.disabled = false;
-            btn.textContent = '✨ Send Request';
+            
+            // Show address section if service was already selected
+            if (savedService) {
+                document.getElementById('addressSection').style.display = 'block';
+            }
         });
     </script>
 </body>
