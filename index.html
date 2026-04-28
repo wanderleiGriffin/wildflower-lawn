@@ -27,16 +27,33 @@
         .hero .tagline { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 300; margin-bottom: 1rem; font-style: italic; }
         .service-area-highlight { background: rgba(250,245,235,0.2); backdrop-filter: blur(10px); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 1rem; margin-bottom: 1.5rem; }
         .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
-        .cta-button { background: #fceeba; color: #1e3b1a; font-weight: 700; font-size: 1rem; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 8px 18px rgba(0,0,0,0.15); cursor: pointer; border: none; }
+        .cta-button { background: #fceeba; color: #1e3b1a; font-weight: 700; font-size: 1rem; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 8px 18px rgba(0,0,0,0.15); cursor: pointer; border: none; transition: 0.2s; }
         .cta-button:hover { background: #fef3cf; transform: translateY(-3px); }
         .cta-button.secondary { background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
 
         .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
 
-        .section-title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 3vw, 1.8rem); color: #1e3b1a; text-align: center; margin-bottom: 0.5rem; }
+        /* ── Fancy Service Cards ── */
+        .service-cards-section { padding: 2rem 0; text-align: center; }
+        .section-title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.4rem, 3vw, 1.8rem); color: #1e3b1a; text-align: center; margin-bottom: 0.3rem; }
         .section-subtitle { color: #4a5e3f; text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        
+        .service-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .service-card { background: white; border-radius: 18px; padding: 1.8rem 1rem; border: 2px solid #e8e5d5; text-align: center; cursor: pointer; transition: all 0.25s ease; position: relative; }
+        .service-card:hover { border-color: #b89b5b; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-5px); }
+        .service-card.selected { border-color: #2a4822; background: #f4f9ee; box-shadow: 0 12px 28px rgba(0,0,0,0.12); transform: translateY(-6px); }
+        .service-card .badge { position: absolute; top: -12px; right: -8px; background: #f9e076; color: #1e3b1a; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 0.6rem; display: block; }
+        .service-card h3 { color: #2a4822; font-size: 1.15rem; margin-bottom: 0.3rem; }
+        .service-card .price { font-size: 1.8rem; font-weight: 700; color: #1e3b1a; margin: 0.3rem 0; }
+        .service-card .price span { font-size: 0.85rem; font-weight: 400; color: #6b7b5a; }
+        .service-card ul { list-style: none; text-align: left; margin: 0.6rem 0 0; color: #5a6b4a; font-size: 0.8rem; }
+        .service-card ul li { padding: 0.18rem 0; }
+        .service-card ul li::before { content: "✓ "; color: #2a4822; font-weight: 700; }
 
-        /* Booking form */
+        .selected-display { background: #f4f9ee; padding: 0.9rem 1.8rem; border-radius: 18px; display: inline-block; font-weight: 600; color: #2a4822; border: 2px solid #2a4822; font-size: 1rem; margin-top: 0.5rem; }
+
+        /* ── Booking Form ── */
         .booking-section { background: #fff; border-radius: 2rem; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid #eee8d5; margin: 2rem auto; }
         .booking-form { display: flex; flex-direction: column; gap: 1.5rem; }
         .form-row { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -46,7 +63,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #b89b5b; box-shadow: 0 0 0 3px rgba(184,155,91,0.15); }
 
         /* Calendar */
-        .calendar-container { background: #f9faf5; border-radius: 16px; padding: 1.2rem; border: 1px solid #e8e5d5; }
+        .calendar-container { background: #f9faf5; border-radius: 18px; padding: 1.2rem; border: 1px solid #e8e5d5; }
         .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
         .calendar-header button { background: #2a4822; color: #fff; border: none; padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
         .calendar-header button:hover { background: #2f5427; }
@@ -60,7 +77,6 @@
         .calendar-grid .day.today { border: 2px solid #b89b5b; }
         .calendar-grid .day.past { color: #ccc; cursor: not-allowed; pointer-events: none; }
 
-        /* Selected dates */
         .selected-dates { margin-top: 1rem; }
         .selected-dates h4 { color: #2a4822; margin-bottom: 0.5rem; font-size: 0.95rem; }
         .date-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -83,7 +99,6 @@
 
         .mission-section { padding: 1.5rem; background: #fff; border-radius: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; border: 1px solid #f0ecdb; margin: 2rem auto; }
         .mission-text { flex: 1 1 350px; }
-        .mission-text h2 { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: #2a4822; }
         .mission-statement { font-style: italic; background: #fafaf5; padding: 1rem 1.2rem; border-radius: 16px; border-left: 4px solid #b89b5b; font-size: 0.9rem; line-height: 1.6; }
 
         .service-area { background: #f6f4ea; padding: 2rem 0; text-align: center; border-radius: 2rem 2rem 0 0; }
@@ -97,7 +112,9 @@
 
         footer { background: #f2efe2; color: #2b3b2c; text-align: center; padding: 1.2rem; border-radius: 1.5rem 1.5rem 0 0; font-size: 0.85rem; }
 
-        @media (max-width: 768px) { .nav-container { flex-direction: column; } .booking-section { padding: 1.2rem; } .calendar-grid .day { padding: 0.4rem 0; font-size: 0.75rem; } }
+        @media (max-width: 900px) { .service-cards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .nav-container { flex-direction: column; } .booking-section { padding: 1.2rem; } }
+        @media (max-width: 500px) { .service-cards { grid-template-columns: 1fr; } .calendar-grid .day { padding: 0.4rem 0; font-size: 0.75rem; } }
     </style>
 </head>
 <body>
@@ -107,6 +124,7 @@
             <a href="#" class="logo"><span class="logo-icon">🌼</span><span>Wildflower Yard Works</span></a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#book">Book Now</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -119,56 +137,107 @@
         <p class="tagline">Native beauty. Naturally maintained. Texas proud.</p>
         <div class="service-area-highlight">🌿 Houston, Conroe & Montgomery</div>
         <div class="hero-buttons">
-            <a href="#book" class="cta-button">📅 Book Lawn Mowing</a>
+            <a href="#services" class="cta-button">🌿 Schedule Lawn Mowing</a>
             <a href="mailto:3Wildflowerlawns@gmail.com" class="cta-button secondary">📸 Get a Quote</a>
         </div>
     </section>
 
-    <!-- BOOKING SYSTEM -->
+    <!-- 🌿 FANCY SERVICE SELECTION CARDS -->
+    <div class="service-cards-section container" id="services">
+        <h2 class="section-title">Step 1: Choose Your Service</h2>
+        <p class="section-subtitle">Click a service card to select it</p>
+        
+        <div class="service-cards">
+            <div class="service-card" id="card-one-time" onclick="selectService('one-time')">
+                <span class="card-icon">🏡</span>
+                <h3>One-Time Mow</h3>
+                <div class="price">$45<span>/visit</span></div>
+                <ul>
+                    <li>Single mowing service</li>
+                    <li>Trimming & edging</li>
+                    <li>Blowing clippings</li>
+                    <li>One date only</li>
+                </ul>
+            </div>
+            
+            <div class="service-card" id="card-weekly" onclick="selectService('weekly')">
+                <span class="badge">🔥 Popular</span>
+                <span class="card-icon">🔄</span>
+                <h3>Weekly Service</h3>
+                <div class="price">$40<span>/visit</span></div>
+                <ul>
+                    <li>Every week</li>
+                    <li>Same day each week</li>
+                    <li>Priority scheduling</li>
+                    <li>Save $5/visit</li>
+                </ul>
+            </div>
+            
+            <div class="service-card" id="card-biweekly" onclick="selectService('biweekly')">
+                <span class="badge">💡 Best Value</span>
+                <span class="card-icon">📅</span>
+                <h3>Bi-Weekly</h3>
+                <div class="price">$42<span>/visit</span></div>
+                <ul>
+                    <li>Every other week</li>
+                    <li>Consistent schedule</li>
+                    <li>Never miss a mow</li>
+                    <li>Save $3/visit</li>
+                </ul>
+            </div>
+            
+            <div class="service-card" id="card-custom" onclick="selectService('custom')">
+                <span class="card-icon">📋</span>
+                <h3>Custom Quote</h3>
+                <div class="price">$?<span>/custom</span></div>
+                <ul>
+                    <li>Large properties</li>
+                    <li>Special requests</li>
+                    <li>Native plant add-on</li>
+                    <li>One-time cleanup</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="selected-display" id="selectedServiceDisplay">
+            📌 <strong>Selected:</strong> <span id="selectedServiceText">None — click a service above</span>
+        </div>
+        <input type="hidden" id="serviceType" value="">
+    </div>
+
+    <!-- 📅 BOOKING FORM -->
     <div class="booking-section container" id="book">
-        <h2 class="section-title">📅 Schedule Your Lawn Mowing</h2>
-        <p class="section-subtitle">Select your service, pick date(s), enter your address, and book!</p>
+        <h2 class="section-title">Step 2: Pick Your Date(s) & Details</h2>
+        <p class="section-subtitle">Select one or multiple days on the calendar, choose a time, and enter your info</p>
 
         <div class="success-box" id="successBox">
-            ✅ <strong>Booking request sent!</strong> I'll confirm your appointment within 24 hours. You'll receive a confirmation at your email.
+            ✅ <strong>Booking request sent to 3wildflowerlawns@gmail.com!</strong><br>I'll confirm your appointment within 24 hours.
         </div>
 
         <form class="booking-form" id="bookingForm" onsubmit="submitBooking(event)">
             
-            <!-- Service & Contact -->
+            <!-- Time & Contact -->
             <div class="form-row">
-                <div class="form-group">
-                    <label>Service Type *</label>
-                    <select id="serviceType" required>
-                        <option value="">Select service...</option>
-                        <option value="One-Time Mow - $45">One-Time Mow - $45/visit</option>
-                        <option value="Weekly Service - $40">Weekly Service - $40/visit</option>
-                        <option value="Bi-Weekly Service - $42">Bi-Weekly Service - $42/visit</option>
-                        <option value="Custom Quote">Custom Quote - Contact me</option>
-                    </select>
-                </div>
                 <div class="form-group">
                     <label>Preferred Time *</label>
                     <select id="preferredTime" required>
-                        <option value="">Select time...</option>
+                        <option value="">Select preferred time...</option>
                         <option value="Morning (7AM - 9AM)">Morning (7AM - 9AM)</option>
                         <option value="Morning (9AM - 11AM)">Morning (9AM - 11AM)</option>
                         <option value="Afternoon (12PM - 2PM)">Afternoon (12PM - 2PM)</option>
                         <option value="Afternoon (2PM - 4PM)">Afternoon (2PM - 4PM)</option>
                         <option value="Evening (4PM - 6PM)">Evening (4PM - 6PM)</option>
-                        <option value="Any Time">Any Time</option>
+                        <option value="Any Time">Any Time — Flexible</option>
                     </select>
                 </div>
             </div>
 
-            <!-- Contact info -->
             <div class="form-row">
                 <div class="form-group"><label>Your Name *</label><input type="text" id="customerName" placeholder="Jane Smith" required></div>
                 <div class="form-group"><label>Email *</label><input type="email" id="customerEmail" placeholder="jane@email.com" required></div>
                 <div class="form-group"><label>Phone *</label><input type="tel" id="customerPhone" placeholder="(281) 555-0192" required></div>
             </div>
 
-            <!-- Address -->
             <div class="form-row">
                 <div class="form-group" style="flex:2;"><label>Street Address *</label><input type="text" id="streetAddress" placeholder="123 Main St" required></div>
                 <div class="form-group"><label>City *</label><input type="text" id="city" placeholder="Houston" required></div>
@@ -187,11 +256,10 @@
                 <div class="selected-dates" id="selectedDatesContainer">
                     <h4>📌 Selected Dates (<span id="dateCount">0</span>):</h4>
                     <div class="date-tags" id="dateTags"></div>
-                    <p style="font-size:0.8rem;color:#6b7b5a;margin-top:0.3rem;">Click multiple dates on the calendar to book several days</p>
+                    <p style="font-size:0.8rem;color:#6b7b5a;margin-top:0.3rem;">🖱️ Click multiple dates to book several days at once</p>
                 </div>
             </div>
 
-            <!-- Notes -->
             <div class="form-group">
                 <label>Special Instructions</label>
                 <textarea id="specialNotes" rows="3" placeholder="Gate codes, pet info, areas to focus on, or any special requests..."></textarea>
@@ -205,28 +273,46 @@
     <div class="how-it-works container">
         <h2 class="section-title">📋 How It Works</h2>
         <div class="steps-container">
-            <div class="step"><div class="step-number">1</div><h4>Choose Service</h4><p>Pick your mowing type</p></div>
-            <div class="step"><div class="step-number">2</div><h4>Select Date(s)</h4><p>Click one or multiple days</p></div>
+            <div class="step"><div class="step-number">1</div><h4>Choose Service</h4><p>Click a card above</p></div>
+            <div class="step"><div class="step-number">2</div><h4>Pick Date(s)</h4><p>Click one or more days</p></div>
             <div class="step"><div class="step-number">3</div><h4>Enter Details</h4><p>Address, time & notes</p></div>
             <div class="step"><div class="step-number">4</div><h4>Get Confirmed</h4><p>I'll confirm within 24hrs</p></div>
         </div>
     </div>
 
-    <!-- MISSION -->
     <div class="mission-section container">
-        <div class="mission-text"><h2>🌱 Our Mission</h2><p class="mission-statement">"To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time."</p></div>
+        <div class="mission-text"><h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:#2a4822;">🌱 Our Mission</h2><p class="mission-statement">"To nurture thriving outdoor spaces that honor Texas native ecology — one yard at a time."</p></div>
         <div style="font-size:4rem;">🌻🐝</div>
     </div>
 
-    <!-- SERVICE AREA -->
     <div class="service-area"><div class="container"><h2 class="section-title">🌎 Where We Work</h2><div class="cities-container"><div class="city-card">🏙️ Houston</div><div class="city-card">🌳 Conroe</div><div class="city-card">🏡 Montgomery</div></div></div></div>
 
-    <!-- CONTACT -->
-    <div class="contact-highlight" id="contact"><div class="container"><h2>Let's Talk</h2><div class="contact-details"><div class="contact-item">📞 <a href="tel:+16015978142">(601) 597-8142</a></div><div class="contact-item">✉️ <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></div></div></div></div>
+    <div class="contact-highlight" id="contact"><div class="container"><h2 style="font-family:'Libre Baskerville',serif;">Let's Talk</h2><div class="contact-details"><div class="contact-item">📞 <a href="tel:+16015978142">(601) 597-8142</a></div><div class="contact-item">✉️ <a href="mailto:3Wildflowerlawns@gmail.com">3Wildflowerlawns@gmail.com</a></div></div></div></div>
 
     <footer><p>© 2026 <strong>Wildflower Yard Works</strong> — Houston • Conroe • Montgomery, Texas</p></footer>
 
     <script>
+        // ── Service Selection ──
+        const serviceData = {
+            'one-time': { name: 'One-Time Mow — $45/visit', price: '$45', value: 'One-Time Mow - $45' },
+            'weekly': { name: 'Weekly Service — $40/visit', price: '$40', value: 'Weekly Service - $40' },
+            'biweekly': { name: 'Bi-Weekly Service — $42/visit', price: '$42', value: 'Bi-Weekly Service - $42' },
+            'custom': { name: 'Custom Quote — Contact for price', price: 'Varies', value: 'Custom Quote' }
+        };
+
+        function selectService(type) {
+            document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById('card-' + type);
+            if (card) card.classList.add('selected');
+            
+            const info = serviceData[type];
+            document.getElementById('selectedServiceText').textContent = info.name;
+            document.getElementById('serviceType').value = info.value;
+            
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+            localStorage.setItem('selectedService', type);
+        }
+
         // ── Calendar Logic ──
         let currentMonth = new Date().getMonth();
         let currentYear = new Date().getFullYear();
@@ -234,39 +320,27 @@
 
         function renderCalendar() {
             const grid = document.getElementById('calendarGrid');
-            const monthName = document.getElementById('calendarMonth');
-            
             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             
-            monthName.textContent = monthNames[currentMonth] + ' ' + currentYear;
+            document.getElementById('calendarMonth').textContent = monthNames[currentMonth] + ' ' + currentYear;
             
             const firstDay = new Date(currentYear, currentMonth, 1).getDay();
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
+            const today = new Date(); today.setHours(0,0,0,0);
             
             let html = '';
             dayNames.forEach(d => { html += '<div class="day-name">' + d + '</div>'; });
+            for (let i = 0; i < firstDay; i++) { html += '<div class="day empty"></div>'; }
             
-            // Empty cells before first day
-            for (let i = 0; i < firstDay; i++) {
-                html += '<div class="day empty"></div>';
-            }
-            
-            // Day cells
             for (let day = 1; day <= daysInMonth; day++) {
-                const date = new Date(currentYear, currentMonth, day);
-                date.setHours(0, 0, 0, 0);
-                
+                const date = new Date(currentYear, currentMonth, day); date.setHours(0,0,0,0);
                 let classes = ['day'];
                 const dateStr = formatDate(date);
-                
                 if (date < today) classes.push('past');
                 if (date.getTime() === today.getTime()) classes.push('today');
                 if (selectedDates.includes(dateStr)) classes.push('selected');
-                
-                html += '<div class="' + classes.join(' ') + '" onclick="toggleDate(\'' + dateStr + '\', this)" data-date="' + dateStr + '">' + day + '</div>';
+                html += '<div class="' + classes.join(' ') + '" onclick="toggleDate(\'' + dateStr + '\')" data-date="' + dateStr + '">' + day + '</div>';
             }
             
             grid.innerHTML = html;
@@ -274,55 +348,32 @@
         }
 
         function formatDate(date) {
-            const y = date.getFullYear();
-            const m = String(date.getMonth() + 1).padStart(2, '0');
-            const d = String(date.getDate()).padStart(2, '0');
-            return y + '-' + m + '-' + d;
+            return date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
         }
 
-        function toggleDate(dateStr, element) {
-            if (element && element.classList.contains('past')) return;
-            
+        function toggleDate(dateStr) {
             const index = selectedDates.indexOf(dateStr);
-            if (index > -1) {
-                selectedDates.splice(index, 1);
-            } else {
-                selectedDates.push(dateStr);
-            }
+            if (index > -1) { selectedDates.splice(index, 1); }
+            else { selectedDates.push(dateStr); }
             selectedDates.sort();
             renderCalendar();
         }
 
         function updateSelectedDisplay() {
+            document.getElementById('dateCount').textContent = selectedDates.length;
             const tags = document.getElementById('dateTags');
-            const count = document.getElementById('dateCount');
-            
-            count.textContent = selectedDates.length;
-            
             if (selectedDates.length === 0) {
                 tags.innerHTML = '<span style="color:#8a9a7a;font-size:0.85rem;">No dates selected — click on the calendar above</span>';
                 return;
             }
-            
             tags.innerHTML = selectedDates.map(date => {
                 const d = new Date(date + 'T00:00:00');
-                const options = { weekday: 'short', month: 'short', day: 'numeric' };
-                const display = d.toLocaleDateString('en-US', options);
-                return '<div class="date-tag">' + display + ' <span class="remove-date" onclick="removeDate(\'' + date + '\')">×</span></div>';
+                return '<div class="date-tag">' + d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}) + ' <span class="remove-date" onclick="removeDate(\''+date+'\')">×</span></div>';
             }).join('');
         }
 
-        function removeDate(dateStr) {
-            selectedDates = selectedDates.filter(d => d !== dateStr);
-            renderCalendar();
-        }
-
-        function changeMonth(delta) {
-            currentMonth += delta;
-            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-            renderCalendar();
-        }
+        function removeDate(dateStr) { selectedDates = selectedDates.filter(d => d !== dateStr); renderCalendar(); }
+        function changeMonth(delta) { currentMonth += delta; if(currentMonth>11){currentMonth=0;currentYear++;} if(currentMonth<0){currentMonth=11;currentYear--;} renderCalendar(); }
 
         // ── Form Submission ──
         function submitBooking(event) {
@@ -339,54 +390,20 @@
             const zipCode = document.getElementById('zipCode').value;
             const specialNotes = document.getElementById('specialNotes').value;
             
-            if (selectedDates.length === 0) {
-                alert('Please select at least one date on the calendar.');
-                return;
-            }
-            
-            if (!serviceType || !preferredTime || !customerName || !customerEmail || !customerPhone || !streetAddress || !city || !zipCode) {
-                alert('Please fill in all required fields.');
-                return;
-            }
+            if (!serviceType) { alert('Please select a service type by clicking one of the cards above.'); return; }
+            if (selectedDates.length === 0) { alert('Please select at least one date on the calendar.'); return; }
+            if (!preferredTime || !customerName || !customerEmail || !customerPhone || !streetAddress || !city || !zipCode) { alert('Please fill in all required fields.'); return; }
             
             const btn = document.getElementById('submitBookingBtn');
             btn.disabled = true;
             btn.textContent = '⏳ Sending...';
             
-            // Format dates for email
             const dateList = selectedDates.map(date => {
-                const d = new Date(date + 'T00:00:00');
-                return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+                return new Date(date+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
             }).join('\n');
             
             const fullAddress = streetAddress + ', ' + city + ', ' + state + ' ' + zipCode;
             
-            // Build email body
-            const subject = 'New Lawn Mowing Booking - ' + customerName;
-            const body = `
-    NEW BOOKING REQUEST
-    ━━━━━━━━━━━━━━━━━━━
-
-    Customer: ${customerName}
-    Email: ${customerEmail}
-    Phone: ${customerPhone}
-
-    Service: ${serviceType}
-    Preferred Time: ${preferredTime}
-
-    Address: ${fullAddress}
-
-    Selected Date(s):
-    ${dateList}
-
-    Special Instructions:
-    ${specialNotes || 'None'}
-
-    ━━━━━━━━━━━━━━━━━━━
-    Sent from Wildflower Yard Works website
-            `;
-            
-            // Send via FormSubmit
             const formData = new FormData();
             formData.append('name', customerName);
             formData.append('email', customerEmail);
@@ -396,7 +413,7 @@
             formData.append('address', fullAddress);
             formData.append('dates', dateList);
             formData.append('notes', specialNotes || 'None');
-            formData.append('_subject', subject);
+            formData.append('_subject', 'New Lawn Mowing Booking - ' + customerName);
             formData.append('_captcha', 'false');
             formData.append('_template', 'table');
             
@@ -405,30 +422,4 @@
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successBox').classList.add('show');
-                    document.getElementById('bookingForm').reset();
-                    selectedDates = [];
-                    renderCalendar();
-                    document.getElementById('successBox').scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    alert('Oops! Something went wrong. Please try again or call (601) 597-8142.');
-                }
-            })
-            .catch(error => {
-                alert('Oops! Something went wrong. Please try again or call (601) 597-8142.');
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.textContent = '📅 Book My Lawn Mowing';
-            });
-        }
-
-        // Initialize calendar on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCalendar();
-        });
-    </script>
-</body>
-</html>
+            .then
