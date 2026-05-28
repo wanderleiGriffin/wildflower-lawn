@@ -35,7 +35,6 @@
         .section-title{font-family:'Libre Baskerville',serif;font-size:clamp(1.4rem,3vw,1.8rem);color:#1e3b1a;text-align:center;margin-bottom:.3rem}
         .section-subtitle{color:#4a5e3f;text-align:center;margin-bottom:1.5rem;font-size:.95rem}
 
-        /* Booking Options */
         .booking-options{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem auto;max-width:800px}
         .booking-option{background:#fff;border-radius:20px;padding:2rem;text-align:center;border:2px solid #e8e5d5;transition:.2s;cursor:pointer;text-decoration:none;color:#2b3b2c}
         .booking-option:hover{border-color:#b89b5b;box-shadow:0 10px 25px rgba(0,0,0,0.06);transform:translateY(-3px)}
@@ -44,7 +43,6 @@
         .booking-option p{color:#5a6b4a;font-size:.9rem}
         .booking-option .highlight{display:inline-block;background:#f4f9ee;padding:.4rem 1rem;border-radius:20px;font-weight:600;color:#2a4822;margin-top:.8rem;font-size:.85rem}
         
-        /* Service Cards */
         .service-cards-section{padding:2rem 0;text-align:center}
         .service-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
         .service-card{background:#fff;border-radius:18px;padding:1.8rem 1rem;border:2px solid #e8e5d5;text-align:center;cursor:pointer;transition:all .25s;position:relative}
@@ -60,16 +58,15 @@
         .service-card ul li::before{content:"✓ ";color:#2a4822;font-weight:700}
         .selected-display{background:#f4f9ee;padding:.9rem 1.8rem;border-radius:18px;display:inline-block;font-weight:600;color:#2a4822;border:2px solid #2a4822;font-size:1rem;margin-top:.5rem}
         
-        /* Booking Form */
         .booking-section{background:#fff;border-radius:2rem;padding:2rem;box-shadow:0 15px 35px rgba(0,0,0,0.04);border:1px solid #eee8d5;margin:2rem auto}
         .booking-form{display:flex;flex-direction:column;gap:1.5rem}
         .form-row{display:flex;flex-wrap:wrap;gap:1rem}
         .form-group{flex:1 1 200px}
+        .form-group.full-width{flex:1 1 100%}
         .form-group label{font-weight:600;color:#2d4624;font-size:.85rem;display:block;margin-bottom:.3rem}
         .form-group input,.form-group select,.form-group textarea{width:100%;padding:.7rem .9rem;border:2px solid #ddd6c0;border-radius:14px;font-family:'Inter',sans-serif;font-size:.9rem;background:#fdfdf9;transition:.2s}
         .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#b89b5b;box-shadow:0 0 0 3px rgba(184,155,91,0.15)}
         
-        /* Calendar */
         .calendar-container{background:#f9faf5;border-radius:18px;padding:1.2rem;border:1px solid #e8e5d5}
         .calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
         .calendar-header button{background:#2a4822;color:#fff;border:none;padding:.4rem 1rem;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:600}
@@ -97,7 +94,6 @@
         .success-box{display:none;background:#e8f0e3;padding:1.5rem;border-radius:16px;text-align:center;font-weight:600;color:#2a4822;border:1px solid #b8d4a8;margin-top:1rem}
         .success-box.show{display:block}
         
-        /* Phone section */
         .phone-section{background:#fff;border-radius:2rem;padding:2.5rem;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,0.04);border:2px solid #2a4822;margin:2rem auto;max-width:600px}
         .phone-section .phone-icon{font-size:4rem;margin-bottom:1rem}
         .phone-section h2{font-family:'Libre Baskerville',serif;font-size:1.8rem;color:#2a4822;margin-bottom:.5rem}
@@ -158,49 +154,36 @@
     </div>
 </section>
 
-<!-- BOOKING OPTIONS -->
 <div id="book-options" style="padding-top:2rem;">
     <h2 class="section-title">Choose How You'd Like to Book</h2>
     <p class="section-subtitle">Book online with our calendar or call directly</p>
-    
     <div class="booking-options">
         <a href="#services" class="booking-option">
-            <span class="option-icon">📅</span>
-            <h3>Book Online</h3>
-            <p>Select your service, pick date(s) on the calendar, and submit your request</p>
+            <span class="option-icon">📅</span><h3>Book Online</h3>
+            <p>Select your service, pick date(s), and submit your request</p>
             <span class="highlight">🖱️ Click to Start</span>
         </a>
         <a href="#phone-book" class="booking-option">
-            <span class="option-icon">📞</span>
-            <h3>Call to Book</h3>
-            <p>Prefer to talk? Call me directly and I'll schedule your mowing over the phone</p>
+            <span class="option-icon">📞</span><h3>Call to Book</h3>
+            <p>Prefer to talk? Call me directly to schedule</p>
             <span class="highlight">📞 (601) 597-8142</span>
         </a>
     </div>
 </div>
 
-<!-- PHONE BOOKING SECTION -->
 <div class="phone-section container" id="phone-book">
     <div class="phone-icon">📞</div>
     <h2>Book by Phone</h2>
-    <p>Call me directly and I'll get you scheduled right away!</p>
-    <div class="phone-number">
-        <a href="tel:+16015978142">(601) 597-8142</a>
-    </div>
-    <p>I'll ask you for:</p>
-    <p style="margin-top:.5rem">📍 Your address • 🗓️ Preferred day(s) • 🕐 Best time • 🌿 Service type</p>
-    <div class="phone-hours">
-        🕐 Available: Monday – Friday • 7AM – 6PM
-    </div>
-    <p style="margin-top:1rem;font-size:.85rem;color:#6b7b5a;">
-        Can't reach me? Leave a voicemail and I'll call back within 2 hours!
-    </p>
+    <p>Call me directly and I'll get you scheduled!</p>
+    <div class="phone-number"><a href="tel:+16015978142">(601) 597-8142</a></div>
+    <p>📍 Your address • 🗓️ Preferred day(s) • 🕐 Best time • 🌿 Service type</p>
+    <div class="phone-hours">🕐 Available: Monday – Friday • 7AM – 6PM</div>
+    <p style="margin-top:1rem;font-size:.85rem;color:#6b7b5a;">Can't reach me? Leave a voicemail — I'll call back within 2 hours!</p>
 </div>
 
-<!-- SERVICE CARDS -->
 <div class="service-cards-section container" id="services">
     <h2 class="section-title">Book Online: Step 1 — Choose Your Service</h2>
-    <p class="section-subtitle">Click a service card to select it, then scroll down to pick dates</p>
+    <p class="section-subtitle">Click a service card to select it</p>
     <div class="service-cards">
         <div class="service-card" id="card-one-time" onclick="selectService('one-time')">
             <span class="card-icon">🏡</span><h3>One-Time Mow</h3>
@@ -227,7 +210,6 @@
     <input type="hidden" id="serviceType" value="">
 </div>
 
-<!-- BOOKING FORM -->
 <div class="booking-section container" id="book">
     <h2 class="section-title">Step 2: Pick Your Date(s) & Details</h2>
     <p class="section-subtitle">Select one or multiple days, choose a time, and enter your info</p>
@@ -251,11 +233,20 @@
             <div class="form-group"><label>Email *</label><input type="email" id="customerEmail" placeholder="jane@email.com" required></div>
             <div class="form-group"><label>Phone *</label><input type="tel" id="customerPhone" placeholder="(281) 555-0192" required></div>
         </div>
+        
+        <!-- FIXED: Street Address now spans full width on its own row -->
         <div class="form-row">
-            <div class="form-group" style="flex:2"><label>Street Address *</label><input type="text" id="streetAddress" placeholder="123 Main St" required></div>
+            <div class="form-group full-width">
+                <label>Street Address *</label>
+                <input type="text" id="streetAddress" placeholder="123 Main Street, Apt 4B" required>
+            </div>
+        </div>
+        
+        <!-- City, State, Zip on one row -->
+        <div class="form-row">
             <div class="form-group"><label>City *</label><input type="text" id="city" placeholder="Houston" required></div>
-            <div class="form-group"><label>State</label><input type="text" id="state" value="TX" required></div>
-            <div class="form-group"><label>Zip *</label><input type="text" id="zipCode" placeholder="77001" required></div>
+            <div class="form-group"><label>State *</label><input type="text" id="state" value="TX" required></div>
+            <div class="form-group"><label>Zip Code *</label><input type="text" id="zipCode" placeholder="77001" required></div>
         </div>
 
         <div class="calendar-container">
@@ -272,12 +263,11 @@
             </div>
         </div>
 
-        <div class="form-group"><label>Special Instructions</label><textarea id="specialNotes" rows="3" placeholder="Gate codes, pet info, special requests..."></textarea></div>
+        <div class="form-group full-width"><label>Special Instructions</label><textarea id="specialNotes" rows="3" placeholder="Gate codes, pet info, special requests..."></textarea></div>
         <button type="submit" class="submit-btn" id="submitBookingBtn">📅 Book My Lawn Mowing</button>
     </form>
 </div>
 
-<!-- HOW IT WORKS -->
 <div class="how-it-works container">
     <h2 class="section-title">📋 How It Works</h2>
     <div class="steps-container">
@@ -327,80 +317,56 @@ function renderCalendar(){
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     document.getElementById('calendarMonth').textContent = months[currentMonth]+' '+currentYear;
-    
     var firstDay = new Date(currentYear,currentMonth,1).getDay();
     var daysInMonth = new Date(currentYear,currentMonth+1,0).getDate();
     var today = new Date(); today.setHours(0,0,0,0);
-    
     var html = '';
     for(var i=0;i<7;i++){html+='<div class="day-name">'+days[i]+'</div>';}
     for(var i=0;i<firstDay;i++){html+='<div class="day empty"></div>';}
-    
     for(var d=1;d<=daysInMonth;d++){
         var date = new Date(currentYear,currentMonth,d); date.setHours(0,0,0,0);
-        var cls = ['day'];
-        var ds = formatDate(date);
+        var cls = ['day']; var ds = formatDate(date);
         if(date<today) cls.push('past');
         if(date.getTime()===today.getTime()) cls.push('today');
         if(selectedDates.indexOf(ds)>-1) cls.push('selected');
         html+='<div class="'+cls.join(' ')+'" onclick="toggleDate(\''+ds+'\')">'+d+'</div>';
     }
-    grid.innerHTML = html;
-    updateDisplay();
+    grid.innerHTML = html; updateDisplay();
 }
 
 function formatDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
-
-function toggleDate(ds){
-    var i = selectedDates.indexOf(ds);
-    if(i>-1){selectedDates.splice(i,1);}else{selectedDates.push(ds);}
-    selectedDates.sort();
-    renderCalendar();
-}
-
+function toggleDate(ds){var i=selectedDates.indexOf(ds);if(i>-1){selectedDates.splice(i,1);}else{selectedDates.push(ds);}selectedDates.sort();renderCalendar();}
 function updateDisplay(){
-    document.getElementById('dateCount').textContent = selectedDates.length;
-    var tags = document.getElementById('dateTags');
-    if(selectedDates.length===0){
-        tags.innerHTML='<span style="color:#8a9a7a;font-size:.85rem">No dates selected — click calendar above</span>';
-        return;
-    }
-    tags.innerHTML = selectedDates.map(function(d){
-        var dt = new Date(d+'T00:00:00');
-        return '<div class="date-tag">'+dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+' <span class="remove-date" onclick="removeDate(\''+d+'\')">×</span></div>';
-    }).join('');
+    document.getElementById('dateCount').textContent=selectedDates.length;
+    var tags=document.getElementById('dateTags');
+    if(selectedDates.length===0){tags.innerHTML='<span style="color:#8a9a7a;font-size:.85rem">No dates selected — click calendar above</span>';return;}
+    tags.innerHTML=selectedDates.map(function(d){var dt=new Date(d+'T00:00:00');return '<div class="date-tag">'+dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+' <span class="remove-date" onclick="removeDate(\''+d+'\')">×</span></div>';}).join('');
 }
-
 function removeDate(d){selectedDates=selectedDates.filter(function(x){return x!==d});renderCalendar();}
 function changeMonth(n){currentMonth+=n;if(currentMonth>11){currentMonth=0;currentYear++;}if(currentMonth<0){currentMonth=11;currentYear--;}renderCalendar();}
 
 function submitBooking(e){
     e.preventDefault();
-    var svc = document.getElementById('serviceType').value;
-    var time = document.getElementById('preferredTime').value;
-    var name = document.getElementById('customerName').value;
-    var email = document.getElementById('customerEmail').value;
-    var phone = document.getElementById('customerPhone').value;
-    var addr = document.getElementById('streetAddress').value;
-    var city = document.getElementById('city').value;
-    var state = document.getElementById('state').value;
-    var zip = document.getElementById('zipCode').value;
-    var notes = document.getElementById('specialNotes').value;
-    
+    var svc=document.getElementById('serviceType').value;
+    var time=document.getElementById('preferredTime').value;
+    var name=document.getElementById('customerName').value;
+    var email=document.getElementById('customerEmail').value;
+    var phone=document.getElementById('customerPhone').value;
+    var addr=document.getElementById('streetAddress').value;
+    var city=document.getElementById('city').value;
+    var state=document.getElementById('state').value;
+    var zip=document.getElementById('zipCode').value;
+    var notes=document.getElementById('specialNotes').value;
     if(!svc){alert('Please select a service by clicking a card above.');return false;}
     if(selectedDates.length===0){alert('Please select at least one date.');return false;}
     if(!time||!name||!email||!phone||!addr||!city||!zip){alert('Please fill all required fields.');return false;}
-    
-    var btn = document.getElementById('submitBookingBtn');
-    btn.disabled = true;
-    btn.textContent = '⏳ Sending...';
-    
-    var dateList = selectedDates.map(function(d){return new Date(d+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});}).join('\n');
-    var fullAddr = addr+', '+city+', '+state+' '+zip;
-    
-    var fd = new FormData();
-    fd.append('name',name); fd.append('email',email); fd.append('phone',phone);
-    fd.append('service',svc); fd.append('time',time); fd.append('address',fullAddr);
-    fd.append('dates',dateList); fd.append('notes',notes||'None');
-    fd.append('_subject','New Booking - '+name);
-    fd.append('_captcha','false'); fd.append('_template','table');
+    var btn=document.getElementById('submitBookingBtn');btn.disabled=true;btn.textContent='⏳ Sending...';
+    var dateList=selectedDates.map(function(d){return new Date(d+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});}).join('\n');
+    var fullAddr=addr+', '+city+', '+state+' '+zip;
+    var fd=new FormData();
+    fd.append('name',name);fd.append('email',email);fd.append('phone',phone);
+    fd.append('service',svc);fd.append('time',time);fd.append('address',fullAddr);
+    fd.append('dates',dateList);fd.append('notes',notes||'None');
+    fd.append('_subject','New Booking - '+name);fd.append('_captcha','false');fd.append('_template','table');
+    fetch('https://formsubmit.co/3wildflowerlawns@gmail.com',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+    .then(function(r){if(r.ok){document.getElementById('successBox').classList.add('show');document.getElementById('booking
