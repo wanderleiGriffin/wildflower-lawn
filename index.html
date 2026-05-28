@@ -11,7 +11,7 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Inter',-apple-system,sans-serif;line-height:1.5;color:#2b3b2c;background:#fcfaf5}
-        header{background:rgba(252,250,245,0.92);backdrop-filter:blur(14px);color:#1e3b1a;padding:1rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,0.04);position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(120,110,70,0.15)}
+        header{background:rgba(252,250,245,0.92);backdrop-filter:blur(14px);color:#1e3b1a;padding:1rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,0.04);position:sticky;top:0;z-index:1000}
         .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
         .logo{display:flex;align-items:center;gap:.5rem;font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:600;color:#2a4822;text-decoration:none}
         .logo-icon{font-size:2rem}
@@ -24,9 +24,9 @@
         .hero{background:linear-gradient(120deg,rgba(35,50,25,0.7),rgba(70,90,45,0.55));padding:3rem 1.5rem;text-align:center;color:#fff;min-height:30vh;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:0 0 2rem 2rem;margin-bottom:2rem}
         .hero h1{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600}
         .hero .tagline{font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;font-style:italic;margin:1rem 0}
-        .service-area-highlight{background:rgba(250,245,235,0.2);backdrop-filter:blur(10px);padding:.5rem 1.5rem;border-radius:50px;font-size:1rem;margin-bottom:1.5rem}
+        .service-area-highlight{background:rgba(250,245,235,0.2);padding:.5rem 1.5rem;border-radius:50px;font-size:1rem;margin-bottom:1.5rem}
         .hero-buttons{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
-        .cta-button{background:#fceeba;color:#1e3b1a;font-weight:700;font-size:1rem;padding:.8rem 1.8rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;box-shadow:0 8px 18px rgba(0,0,0,0.15);cursor:pointer;border:none;transition:.2s}
+        .cta-button{background:#fceeba;color:#1e3b1a;font-weight:700;font-size:1rem;padding:.8rem 1.8rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;border:none;transition:.2s}
         .cta-button:hover{background:#fef3cf;transform:translateY(-3px)}
         .cta-button.phone{background:#2a4822;color:#fff}
         
@@ -44,15 +44,15 @@
         
         .service-cards-section{padding:2rem 0;text-align:center}
         .service-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
-        .service-card{background:#fff;border-radius:18px;padding:1.5rem 1rem;border:2px solid #e8e5d5;text-align:center;cursor:pointer;transition:all .25s;position:relative;user-select:none}
+        .service-card{background:#fff;border-radius:18px;padding:1.5rem 1rem;border:2px solid #e8e5d5;text-align:center;cursor:pointer;transition:all .25s;position:relative}
         .service-card:hover{border-color:#b89b5b;box-shadow:0 10px 25px rgba(0,0,0,0.08);transform:translateY(-5px)}
-        .service-card.selected{border-color:#2a4822;background:#f4f9ee;box-shadow:0 12px 28px rgba(0,0,0,0.12);transform:translateY(-6px)}
-        .service-card .badge{position:absolute;top:-12px;right:-8px;background:#f9e076;color:#1e3b1a;padding:.3rem .9rem;border-radius:20px;font-size:.7rem;font-weight:700}
-        .card-icon{font-size:2.5rem;margin-bottom:.5rem;display:block}
-        .service-card h3{color:#2a4822;font-size:1.1rem;margin-bottom:.2rem}
-        .service-card .price{font-size:1.6rem;font-weight:700;color:#1e3b1a}
+        .service-card.selected{border-color:#2a4822!important;background:#f4f9ee!important;box-shadow:0 12px 28px rgba(0,0,0,0.12)!important;transform:translateY(-6px)!important}
+        .service-card .badge{position:absolute;top:-12px;right:-8px;background:#f9e076;color:#1e3b1a;padding:.3rem .9rem;border-radius:20px;font-size:.7rem;font-weight:700;z-index:2}
+        .card-icon{font-size:2.5rem;margin-bottom:.5rem;display:block;pointer-events:none}
+        .service-card h3{color:#2a4822;font-size:1.1rem;margin-bottom:.2rem;pointer-events:none}
+        .service-card .price{font-size:1.6rem;font-weight:700;color:#1e3b1a;pointer-events:none}
         .service-card .price span{font-size:.8rem;font-weight:400;color:#6b7b5a}
-        .service-card ul{list-style:none;text-align:left;margin:.5rem 0 0;color:#5a6b4a;font-size:.78rem}
+        .service-card ul{list-style:none;text-align:left;margin:.5rem 0 0;color:#5a6b4a;font-size:.78rem;pointer-events:none}
         .service-card ul li{padding:.15rem 0}
         .service-card ul li::before{content:"✓ ";color:#2a4822;font-weight:700}
         .selected-display{background:#f4f9ee;padding:.8rem 1.5rem;border-radius:18px;display:inline-block;font-weight:600;color:#2a4822;border:2px solid #2a4822;font-size:.95rem;margin-top:.5rem}
@@ -81,7 +81,7 @@
         .selected-dates{margin-top:1rem}
         .date-tags{display:flex;flex-wrap:wrap;gap:.5rem}
         .date-tag{background:#e8f0e3;padding:.4rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:#2a4822;display:flex;align-items:center;gap:.4rem;border:1px solid #b8d4a8}
-        .date-tag .remove-date{cursor:pointer;color:#c0392b;font-weight:700}
+        .date-tag .remove-date{cursor:pointer;color:#c0392b;font-weight:700;font-size:1.2rem;line-height:1}
         
         .submit-btn{background:#1e3b1a;color:#fff;border:none;padding:1rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.1rem;cursor:pointer;width:100%}
         .submit-btn:hover{background:#2f5427}
@@ -158,30 +158,29 @@
     <div class="phone-number"><a href="tel:+16015978142">(601) 597-8142</a></div>
     <p style="color:#5a6b4a">📍 Your address • 🗓️ Preferred day(s) • 🕐 Best time • 🌿 Service type</p>
     <div class="phone-hours">🕐 Available: Monday – Friday • 7AM – 6PM</div>
-    <p style="margin-top:1rem;font-size:.85rem;color:#6b7b5a">Can't reach me? Leave a voicemail — I'll call back within 2 hours!</p>
 </div>
 
-<!-- SERVICES -->
+<!-- SERVICES - Using data attributes instead of onclick -->
 <div class="service-cards-section container" id="services">
     <h2 class="section-title">Step 1: Choose Your Service</h2>
     <p class="section-subtitle">Click a service card to select it</p>
-    <div class="service-cards">
-        <div class="service-card" id="card-one-time" onclick="selectService('one-time')">
+    <div class="service-cards" id="serviceCardsContainer">
+        <div class="service-card" data-service="one-time">
             <span class="card-icon">🏡</span><h3>One-Time Mow</h3>
             <div class="price">$45<span>/visit</span></div>
             <ul><li>Single mowing service</li><li>Trimming & edging</li><li>Blowing clippings</li><li>One date only</li></ul>
         </div>
-        <div class="service-card" id="card-weekly" onclick="selectService('weekly')">
+        <div class="service-card" data-service="weekly">
             <span class="badge">🔥 Popular</span><span class="card-icon">🔄</span><h3>Weekly Service</h3>
             <div class="price">$40<span>/visit</span></div>
             <ul><li>Every week</li><li>Same day each week</li><li>Priority scheduling</li><li>Save $5/visit</li></ul>
         </div>
-        <div class="service-card" id="card-biweekly" onclick="selectService('biweekly')">
+        <div class="service-card" data-service="biweekly">
             <span class="badge">💡 Best Value</span><span class="card-icon">📅</span><h3>Bi-Weekly</h3>
             <div class="price">$42<span>/visit</span></div>
             <ul><li>Every other week</li><li>Consistent schedule</li><li>Never miss a mow</li><li>Save $3/visit</li></ul>
         </div>
-        <div class="service-card" id="card-custom" onclick="selectService('custom')">
+        <div class="service-card" data-service="custom">
             <span class="card-icon">📋</span><h3>Custom Quote</h3>
             <div class="price">$?<span>/custom</span></div>
             <ul><li>Large properties</li><li>Special requests</li><li>Native plant add-on</li><li>One-time cleanup</li></ul>
@@ -253,8 +252,8 @@
 
 <footer><p>© 2026 <strong>Wildflower Yard Works</strong> — Houston • Conroe • Montgomery, Texas</p></footer>
 
-<!-- ✅ COMPLETE WORKING JAVASCRIPT -->
 <script>
+// Service data
 var serviceData = {
     'one-time': {name:'One-Time Mow — $45/visit', value:'One-Time Mow - $45'},
     'weekly': {name:'Weekly Service — $40/visit', value:'Weekly Service - $40'},
@@ -262,40 +261,72 @@ var serviceData = {
     'custom': {name:'Custom Quote — Contact for price', value:'Custom Quote'}
 };
 
+// Service selection function
 function selectService(type){
-    console.log('Service clicked: ' + type);
+    console.log('Service selected: ' + type);
     
-    // Remove selected from all cards
-    var cards = document.querySelectorAll('.service-card');
-    for(var i=0; i<cards.length; i++){
-        cards[i].classList.remove('selected');
+    // Remove selected class from ALL cards
+    var allCards = document.querySelectorAll('.service-card');
+    for(var i = 0; i < allCards.length; i++){
+        allCards[i].classList.remove('selected');
     }
     
-    // Add selected to clicked card
-    var card = document.getElementById('card-' + type);
-    if(card){
-        card.classList.add('selected');
+    // Find and select the clicked card
+    var selectedCard = document.querySelector('.service-card[data-service="' + type + '"]');
+    if(selectedCard){
+        selectedCard.classList.add('selected');
     }
     
-    // Update display text
-    var info = serviceData[type];
-    document.getElementById('selectedServiceText').textContent = info.name;
-    document.getElementById('serviceType').value = info.value;
+    // Update the display text
+    if(serviceData[type]){
+        document.getElementById('selectedServiceText').textContent = serviceData[type].name;
+        document.getElementById('serviceType').value = serviceData[type].value;
+    }
     
-    // Scroll to booking form
-    document.getElementById('book').scrollIntoView({behavior:'smooth'});
+    // Scroll to the booking form
+    var bookSection = document.getElementById('book');
+    if(bookSection){
+        bookSection.scrollIntoView({behavior:'smooth'});
+    }
     
-    // Save selection
+    // Save to localStorage
     localStorage.setItem('selectedService', type);
 }
 
-// Calendar
+// Add click event listeners to ALL service cards
+document.addEventListener('DOMContentLoaded', function(){
+    console.log('Page loaded - attaching click handlers');
+    
+    var cards = document.querySelectorAll('.service-card');
+    console.log('Found ' + cards.length + ' service cards');
+    
+    for(var i = 0; i < cards.length; i++){
+        cards[i].addEventListener('click', function(){
+            var serviceType = this.getAttribute('data-service');
+            console.log('Card clicked: ' + serviceType);
+            selectService(serviceType);
+        });
+    }
+    
+    // Initialize calendar
+    renderCalendar();
+    
+    // Restore saved service
+    var saved = localStorage.getItem('selectedService');
+    if(saved && serviceData[saved]){
+        selectService(saved);
+    }
+});
+
+// Calendar functions
 var currentMonth = new Date().getMonth();
 var currentYear = new Date().getFullYear();
 var selectedDates = [];
 
 function renderCalendar(){
     var grid = document.getElementById('calendarGrid');
+    if(!grid) return;
+    
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     
@@ -426,6 +457,9 @@ function submitBooking(e){
             document.getElementById('bookingForm').reset();
             selectedDates = [];
             renderCalendar();
+            document.getElementById('serviceType').value = '';
+            document.getElementById('selectedServiceText').textContent = 'None — click a service above';
+            document.querySelectorAll('.service-card').forEach(function(c){ c.classList.remove('selected'); });
             document.getElementById('successBox').scrollIntoView({behavior:'smooth'});
         } else {
             alert('Something went wrong. Please call (601) 597-8142 to book.');
@@ -441,15 +475,6 @@ function submitBooking(e){
     
     return false;
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function(){
-    renderCalendar();
-    var saved = localStorage.getItem('selectedService');
-    if(saved && serviceData[saved]){
-        selectService(saved);
-    }
-});
 </script>
 </body>
 </html>
